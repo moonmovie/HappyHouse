@@ -18,13 +18,13 @@
 <link href="${root}/img/apple-touch-icon.png" rel="apple-touch-icon">
 
 <!-- Vendor CSS Files -->
-<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="/vendor/icofont/icofont.min.css" rel="stylesheet">
-<link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-<link href="/vendor/remixicon/remixicon.css" rel="stylesheet">
-<link href="/vendor/venobox/venobox.css" rel="stylesheet">
-<link href="/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-<link href="/vendor/aos/aos.css" rel="stylesheet">
+<link href="${root}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${root}/vendor/icofont/icofont.min.css" rel="stylesheet">
+<link href="${root}/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="${root}/vendor/remixicon/remixicon.css" rel="stylesheet">
+<link href="${root}/vendor/venobox/venobox.css" rel="stylesheet">
+<link href="${root}/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="${root}/vendor/aos/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 <!-- Google Fonts -->
@@ -41,8 +41,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript"src="//dapi.kakao.com/v2/maps/sdk.js?appkey=85b89f0f53a0acf2a6b95c053dc85e9b&libraries=services"></script>
-<script type="text/javascript" src="/js/dealResult.js"></script>
-<script type="text/javascript" src="/js/sido.js"></script>
+<script type="text/javascript" src="${root}/js/dealResult.js"></script>
+<script type="text/javascript" src="${root}/js/sido.js"></script>
 
 </head>
 
@@ -166,7 +166,7 @@
 								aliquam eget nibh et. Maecen aliquam, risus at semper. <i
 									class="bx bxs-quote-alt-right quote-icon-right"></i>
 							</p>
-							<img src="assets/img/testimonials/testimonials-1.jpg"
+							<img src="/img/testimonials/testimonials-1.jpg"
 								class="testimonial-img" alt="">
 							<h3>Saul Goodman</h3>
 							<h4>Ceo &amp; Founder</h4>
@@ -180,7 +180,7 @@
 								aliqua noster fugiat irure amet legam anim culpa. <i
 									class="bx bxs-quote-alt-right quote-icon-right"></i>
 							</p>
-							<img src="assets/img/testimonials/testimonials-2.jpg"
+							<img src="/img/testimonials/testimonials-2.jpg"
 								class="testimonial-img" alt="">
 							<h3>Sara Wilsson</h3>
 							<h4>Designer</h4>
@@ -194,7 +194,7 @@
 								amet eram fore quis sint minim. <i
 									class="bx bxs-quote-alt-right quote-icon-right"></i>
 							</p>
-							<img src="assets/img/testimonials/testimonials-3.jpg"
+							<img src="/img/testimonials/testimonials-3.jpg"
 								class="testimonial-img" alt="">
 							<h3>Jena Karlis</h3>
 							<h4>Store Owner</h4>
@@ -208,7 +208,7 @@
 								ipsum anim magna sunt elit fore quem dolore labore illum veniam.
 								<i class="bx bxs-quote-alt-right quote-icon-right"></i>
 							</p>
-							<img src="assets/img/testimonials/testimonials-4.jpg"
+							<img src="/img/testimonials/testimonials-4.jpg"
 								class="testimonial-img" alt="">
 							<h3>Matt Brandon</h3>
 							<h4>Freelancer</h4>
@@ -222,7 +222,7 @@
 								illum cillum fugiat legam esse veniam culpa fore nisi cillum
 								quid. <i class="bx bxs-quote-alt-right quote-icon-right"></i>
 							</p>
-							<img src="assets/img/testimonials/testimonials-5.jpg"
+							<img src="/img/testimonials/testimonials-5.jpg"
 								class="testimonial-img" alt="">
 							<h3>John Larson</h3>
 							<h4>Entrepreneur</h4>
@@ -345,19 +345,19 @@
 	<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
 	<!-- Vendor JS Files -->
-	<script src="assets/vendor/jquery/jquery.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-	<script src="assets/vendor/php-email-form/validate.js"></script>
-	<script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-	<script src="assets/vendor/counterup/counterup.min.js"></script>
-	<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-	<script src="assets/vendor/venobox/venobox.min.js"></script>
-	<script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-	<script src="assets/vendor/aos/aos.js"></script>
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/vendor/jquery.easing/jquery.easing.min.js"></script>
+	<script src="/vendor/php-email-form/validate.js"></script>
+	<script src="/vendor/waypoints/jquery.waypoints.min.js"></script>
+	<script src="/vendor/counterup/counterup.min.js"></script>
+	<script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="/vendor/venobox/venobox.min.js"></script>
+	<script src="/vendor/owl.carousel/owl.carousel.min.js"></script>
+	<script src="/vendor/aos/aos.js"></script>
 
 	<!-- Template Main JS File -->
-	<script src="assets/js/main.js"></script>
+	<script src="/js/main.js"></script>
 
 </body>
 </html>
