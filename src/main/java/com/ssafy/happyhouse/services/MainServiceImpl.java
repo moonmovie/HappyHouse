@@ -63,9 +63,15 @@ public class MainServiceImpl implements MainService{
 	}
 
 	@Override
-	public List<HouseInfoDto> houseInfoDao(String dong) {
+	public List<HouseInfoDto> houseInfoDao(Map<String,Object> map) {
 		// TODO Auto-generated method stub
-		return sqlsession.getMapper(MainDao.class).houseInfoDao(dong);
+		return sqlsession.getMapper(MainDao.class).houseInfoDao(map);
+	}
+
+	@Override
+	public int totalList(String dong) {
+		// TODO Auto-generated method stub
+		return sqlsession.getMapper(MainDao.class).totalList(dong);
 	}
 
 }

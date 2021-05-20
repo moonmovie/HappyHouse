@@ -19,13 +19,25 @@
 		select * from sidocode
 	</select>
 	
-	<select id="houseInfoDao" parameterType="String" resultType="houseInfoDto">
+	<select id="houseInfoDao" parameterType="Map" resultType="houseInfoDto">
 		select * from houseinfo
 		where dong=#{dong}
+		order by no
+		<if test="start!=null">
+			limit #{start},#{end}
+		</if>
+		
 	</select>
 	
 	<select id="housedealDao" parameterType="Map" resultType="houseDealDto">
 		select * from housedeal
 		where dong = #{dong} and AptName = #{name}
 	</select>
+	
+	<select id="totalList" parameterType="String" resultType="int">
+		select count(*) from houseinfo
+		where dong=#{dong}
+	</select>
+	
+	
 </mapper>

@@ -15,9 +15,10 @@ public interface MainService {
 	List<SidoDto> SidoService();
 	List<GugunDto> gugunService(String sido);
 	List<HouseDealDto> housedealService(Map<String,String> map);
-	List<HouseInfoDto> houseInfoDao(String dong);
+	List<HouseInfoDto> houseInfoDao(Map<String, Object> map);
 	int wishSearchService(WishDto wishdto);
 	int wishInsertService(WishDto wishdto);
 	int wishDeleteService(WishDto wishdto);
+	int totalList(String dong);
 	
 }
