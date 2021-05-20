@@ -1,5 +1,5 @@
 
-let root = "/happyhouse";
+let root = "";
 var imageSrc =
   "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 var imageSize = new kakao.maps.Size(24, 35);

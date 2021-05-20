@@ -11,7 +11,7 @@
 <meta charset="utf-8">
 
 <!-- Template Main CSS File -->
-<link href="${root}/assets/css/style.css" rel="stylesheet">
+<link href="${root}/css/style.css" rel="stylesheet">
 
 <script type="text/javascript">
 	function login() {
