@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.happyhouse.mapper.MainDao">
+
+	<select id="dongDao" parameterType="String" resultType="dongDto">
+		select dongcode,dong from dongcode 
+		where dongcode like concat(#{gugun},'%')
+		order by dong asc;
+	</select>
+	
+	<select id="gugunDao" parameterType="String" resultType="gugunDto">
+		select gugun_code, gugun_name from guguncode
+		where gugun_code like concat(#{sido},'%')
+	</select>
+	
+	<select id="SidoDao" resultType="sidoDto">
+		select * from sidocode
+	</select>
+	
+	<select id="houseInfoDao" parameterType="String" resultType="houseInfoDto">
+		select * from houseinfo
+		where dong=#{dong}
+	</select>
+	
+	<select id="housedealDao" parameterType="Map" resultType="houseDealDto">
+		select * from housedeal
+		where dong = #{dong} and AptName = #{name}
+	</select>
+</mapper>

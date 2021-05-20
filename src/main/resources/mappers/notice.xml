@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.happyhouse.mapper.NoticeDao">
+	
+	<select id="qnalist" parameterType="map" resultType="noticeDto">
+		select `no`, title, content, userid,`date`
+		from notice
+		<if test="word !=null and word !=''">
+			where ${search} like concat('%', #{word}, '%')
+		</if>
+		order by date desc
+		limit #{start},#{end};
+	</select>
+	<!-- 전체 글 조회 -->
+	<select id="noticeList" resultType="noticeDto">
+		select no, userid, date, content, title
+		from notice
+		order by no;
+	</select>
+	
+	<!-- 글 정보 등록 -->
+	<insert id="registNotice" parameterType="noticeDto">
+		insert into notice(
+			userid, date, content, title
+		) values (
+			#{userid}, now(), #{content}, #{title}
+		)
+	</insert>
+	
+	<!-- 글 정보 수정 -->
+	<update id="modifyNotice" parameterType="noticeDto">
+		update notice
+		set title = #{title},
+			content = #{content},
+			date = now()
+		 where no = #{no}
+	</update>
+	
+	<!-- 번호에 따른 글 정보 삭제 -->
+	<delete id="deleteNotice" parameterType="int">
+		delete
+		from notice
+		where no = #{no}
+	</delete>
+	
+	<select id="search" resultType="noticeDto">
+		select no, userid, date, content, title
+		from notice
+		where no = #{no}
+	</select>
+	
+	<select id="totalCount" resultType="int">
+		select count(*)
+		from notice
+		<if test="word !=null and word !=''">
+			where ${search} like concat('%', #{word}, '%')
+		</if>
+		
+	</select>
+</mapper>
