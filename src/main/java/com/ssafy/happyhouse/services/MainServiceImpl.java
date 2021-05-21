@@ -13,6 +13,7 @@ import com.ssafy.happyhouse.model.GugunDto;
 import com.ssafy.happyhouse.model.HouseDealDto;
 import com.ssafy.happyhouse.model.HouseInfoDto;
 import com.ssafy.happyhouse.model.SidoDto;
+import com.ssafy.happyhouse.model.StoreDto;
 import com.ssafy.happyhouse.model.WishDto;
 
 @Service
@@ -73,5 +74,12 @@ public class MainServiceImpl implements MainService{
 		// TODO Auto-generated method stub
 		return sqlsession.getMapper(MainDao.class).totalList(dong);
 	}
+
+	@Override
+	public List<StoreDto> storeinfo(Map<String,String>map) {
+		
+		return sqlsession.getMapper(MainDao.class).storeinfo(map);
+	}
+	
 
 }

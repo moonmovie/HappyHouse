@@ -39,5 +39,9 @@
 		where dong=#{dong}
 	</select>
 	
+	<select id="storeinfo" parameterType="Map" resultType="storeDto">
+		select * from store
+		where bcode=#{dongcode} and scode=#{classify}
+	</select>
 	
 </mapper>

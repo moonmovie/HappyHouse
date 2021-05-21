@@ -51,7 +51,7 @@
 			<nav class="nav-menu d-none d-lg-block">
 				<ul>
 					<li class="active"><a href="#header">Home</a></li>
-					<li><a href="${root}/notice/list">Notice</a></li>
+					<li><a href="/dist/notice.html">Notice</a></li>
 					<li><a href="#services">Today's News</a></li>
 					<li><a href="#contact">Contact</a></li>
 					<c:if test="${user eq null}"> <%-- 로그인이 안 되어 있다면 --%>

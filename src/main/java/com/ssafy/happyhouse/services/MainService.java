@@ -8,6 +8,7 @@ import com.ssafy.happyhouse.model.GugunDto;
 import com.ssafy.happyhouse.model.HouseDealDto;
 import com.ssafy.happyhouse.model.HouseInfoDto;
 import com.ssafy.happyhouse.model.SidoDto;
+import com.ssafy.happyhouse.model.StoreDto;
 import com.ssafy.happyhouse.model.WishDto;
 
 public interface MainService {
@@ -20,5 +21,6 @@ public interface MainService {
 	int wishInsertService(WishDto wishdto);
 	int wishDeleteService(WishDto wishdto);
 	int totalList(String dong);
+	List<StoreDto> storeinfo(Map<String,String>map);
 	
 }
