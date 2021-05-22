@@ -65,7 +65,6 @@
 		<ul class="list-inline mt-4">
 			<li class="list-inline-item">
 				<div class="searchProvince">
-				<div>sdfsdf</div>
 					<form>
 						<select class="form-control" name="sido" id="sido"
 							style="width: auto;">

@@ -1,8 +1,10 @@
 package com.ssafy.happyhouse.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ssafy.happyhouse.model.MemberDto;
+import com.ssafy.happyhouse.services.KakaoService;
 import com.ssafy.happyhouse.services.MemberService;
 
 @Controller
@@ -22,6 +25,8 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private KakaoService kakao;
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list() {
@@ -59,9 +64,36 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping(value = "/kakao/login", produces = "application/json", method = RequestMethod.GET)
+	public String kakaologin(@RequestParam("code") String code, HttpSession session, HttpServletRequest request, HttpServletResponse httpServletResponse) {
+		MemberDto member = new MemberDto();
+		String access_Token = kakao.getAccessToken(code);
+		HashMap<String, Object> userInfo = kakao.getUserInfo(access_Token);
+	    System.out.println("login Controller : " + userInfo);
+	    System.out.println(userInfo.get("nickname"));
+	    //    클라이언트의 이메일이 존재할 때 세션에 해당 이메일과 토큰 등록
+//	    if (userInfo.get("email") != null) {
+//	    	member.setUserEmail((String) userInfo.get("email"));
+//	    }
+//	    session.setAttribute("userId", userInfo.get("nickname"));
+	    member.setUserName((String) userInfo.get("nickname"));
+	    member.setUserType("kakao");
+	    session.setAttribute("user", member);
+        session.setAttribute("access_Token", access_Token);
+		return "redirect:/";
+	}
+	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		session.invalidate();
+		return "redirect:/"; // 검색
+	}
+	
+	@RequestMapping(value = "/kakao/logout", method = RequestMethod.GET)
+	public String kakaologout(HttpSession session) {
+		kakao.kakaoLogout((String)session.getAttribute("access_Token"));
+	    session.removeAttribute("access_Token");
+	    session.removeAttribute("user");
 		return "redirect:/"; // 검색
 	}
 	
