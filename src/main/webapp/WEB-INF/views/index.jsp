@@ -42,6 +42,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript"src="//dapi.kakao.com/v2/maps/sdk.js?appkey=85b89f0f53a0acf2a6b95c053dc85e9b&libraries=services"></script>
 <script type="text/javascript" src="${root}/js/dealResult.js"></script>
+<script type="text/javascript" src="${root}/js/pagination.js"></script>
 <script type="text/javascript" src="${root}/js/sido.js"></script>
 
 </head>
@@ -65,7 +66,6 @@
 		<ul class="list-inline mt-4">
 			<li class="list-inline-item">
 				<div class="searchProvince">
-				<div>sdfsdf</div>
 					<form>
 						<select class="form-control" name="sido" id="sido"
 							style="width: auto;">
@@ -124,9 +124,14 @@
 					<ul class="list-group list-group-flush" id="ul_list">
 						
 					</ul>
+					<ul class="pagination" id="paging"></ul>
+					 <!-- <div class="justify-content-center">
+						<ul class="pagination" id="paging"></ul>
+					</div> -->
 				</div>
 				<!-- 지도 왼쪽 부분 끝 -->
 				
+
 				<!-- ======= Map Section ======= -->
 				<div class="col-lg-7 pt-4 pt-lg-0" data-aos="fade-up"
 					data-aos-delay="100">

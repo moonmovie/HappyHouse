@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import com.ssafy.happyhouse.model.GugunDto;
 import com.ssafy.happyhouse.model.HouseDealDto;
 import com.ssafy.happyhouse.model.HouseInfoDto;
 import com.ssafy.happyhouse.model.SidoDto;
+import com.ssafy.happyhouse.model.StoreDto;
 import com.ssafy.happyhouse.services.MainService;
 
 @RestController
@@ -52,13 +54,49 @@ public class ArticleController {
 	} 
 	@RequestMapping(value="/load/info/{dong}", method = RequestMethod.GET)
 	public List<HouseInfoDto> dongsearch(@PathVariable("dong") String dong){
+		Map<String, Object> servicedata = new HashMap<String, Object>();
+		servicedata.put("dong",dong);
+		return  mainservice.houseInfoDao(servicedata);
+	}
+	
+	@RequestMapping(value="/house/{dong}/{cur}", method = RequestMethod.GET)
+	public Map<String,Object> dongAptsearch(@PathVariable("dong") String dong, @PathVariable("cur") int cur){
+		Map<String, Object> servicedata = new HashMap<String, Object>();
+		int perpage = 5;
+		int start=perpage*(cur-1);
+		int end=perpage;
+		servicedata.put("start",start);
+		servicedata.put("end",end);
+		servicedata.put("dong",dong);
 		
-		return mainservice.houseInfoDao(dong);
+		Map<String,Object> result =new HashMap<String, Object>();
+		result.put("list",mainservice.houseInfoDao(servicedata));
+		result.put("perpage",perpage);
+		result.put("total",mainservice.totalList(dong));
+		return result;
 	}
 	
 	@RequestMapping(value="/housedeal", method = RequestMethod.POST)
 	public List<HouseDealDto> Aptdeal(@RequestBody Map <String,String> map){
 		return mainservice.housedealService(map);
 	}
+	
+	@GetMapping("/store/{dongcode}")
+	public Map<String,List<StoreDto>> storedong(@PathVariable("dongcode") String dong){
+//		DFPQR
+		String[] classifies= {"D","F","P","Q","R"};
+		Map<String,List<StoreDto>> res = new HashMap<String, List<StoreDto>>();
+		Map<String,String> daoparmas;
+		
+		for(int i=0;i<5;i++) {
+			daoparmas = new HashMap<String, String>();
+			daoparmas.put("dongcode",dong);
+			daoparmas.put("classify",classifies[i]);
+			res.put(classifies[i],mainservice.storeinfo(daoparmas));
+		}
+		return res;
+	}
+	
+	
 
 }
