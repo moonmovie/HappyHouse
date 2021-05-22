@@ -17,37 +17,38 @@
 	</script>
 </head>
 <body>
-<%@ include file="../include/header.jsp"%>	
-<div class="container" align="center">
-  <div class="col-lg-8" align="center">
-  <h2>회원 정보</h2>
+<%@ include file="../include/header.jsp"%>
 
-  <table class="table table-active">
-    <tbody>
-      <tr class="table-info">
-        <td>이름 : ${user.userName}</td>
-        <td>가입일 : ${user.joindate}</td>
-      </tr>
-      <tr>
-        <td>id : ${user.userId}</td>
-        <td>이메일 : ${user.userEmail}</td>
-      </tr>
-      <tr>
-        <td>전화번호 : ${user.userPhone}</td>
-        <td>유저 타입 : ${user.userType}</td>
-      </tr>
-      <tr>
-        <td>주소 : ${user.userAddress}</td>
-      </tr>
-      <tr>
-        <td colspan="2">
-		<a href="${root }/user/modify">수정</a>
-		<a href="${root }/user/delete?userId=${user.userId}">회원탈퇴</a>
-		</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
+<div class="container" align="center">
+	<h2>회원 정보</h2>
+	<div class="col-lg-3"></div>
+	<div class="col-lg-7" align="center">
+		<div class="form-group" align="left">
+			<label for="name">이름</label>
+			<input type="text" class="form-control" value="${user.userName }" readonly>
+		</div>
+		<div class="form-group" align="left">
+			<label for="">아이디</label>
+			<input type="text" class="form-control" value="${user.userId}" readonly>
+		</div>
+		<div class="form-group" align="left">
+			<label for="">전화번호</label>
+			<input type="text" class="form-control" value="${user.userPhone}" readonly>
+		</div>
+		<div class="form-group" align="left">
+			<label for="">유저타입</label>
+			<input type="text" class="form-control" value="${user.userType}" readonly>
+		</div>
+		<div class="form-group" align="left">
+			<label for="">주소</label>
+			<input type="text" class="form-control" value="${user.userAddress}" readonly>
+		</div>
+		
+		<div class="form-group" align="center">
+			<button type="button" class="btn btn-primary" id="registerBtn" onclick="location.href='${root }/user/modify'">수정</button>
+			<button type="button" class="btn btn-warning" id="deleteBtn" onclick="location.href='${root }/user/delete?userId=${user.userId}'">탈퇴</button>
+		</div>
+	</div>
 </div>
 </body>
 </html>

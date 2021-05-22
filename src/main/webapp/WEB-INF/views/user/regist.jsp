@@ -52,6 +52,7 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
+<%@ include file="../include/header.jsp"%>	
 <div class="container" align="center">
 	<div class="col-lg-6" align="center">
 		<form id="memberform" method="post" action="">
