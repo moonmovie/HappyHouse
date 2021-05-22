@@ -73,7 +73,6 @@ public class pharmacyData{
 		public XMLHandler(String lat,String lon) {
 			this.lat = Double.parseDouble(lat);
 			this.lon = Double.parseDouble(lon);
-			System.out.println("생성자 생성");
 		}
 		
 		public Map<String,Object> getList(){
@@ -108,7 +107,6 @@ public class pharmacyData{
 				break;
 			case "wgs84Lat":
 				p.setWgs84Lat(s);
-				System.out.println(s);
 				break;
 			case "wgs84Lon":
 				p.setWgs84Lon(s);
@@ -165,16 +163,12 @@ public class pharmacyData{
 		
 		Element root = document.getDocumentElement();
 		
-		System.out.println(root);
-		
 		NodeList nd = root.getChildNodes();
 		for(int i=0;i<nd.getLength();i++) {
-			System.out.println(nd.item(i).getNodeName());
 			if(nd.item(i).getNodeName().equals("body")) {
 				Element body = (Element)nd.item(i);
 				NodeList bodychild = body.getChildNodes();
 				for(int j=0;j<bodychild.getLength();j++) {
-					System.out.println(bodychild.item(j).getNodeName());
 					if(bodychild.item(j).getNodeName().equals("totalCount")) {
 						return bodychild.item(j).getTextContent();
 					}

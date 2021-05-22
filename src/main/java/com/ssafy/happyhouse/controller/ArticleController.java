@@ -92,7 +92,7 @@ public class ArticleController {
 			daoparmas = new HashMap<String, String>();
 			daoparmas.put("dongcode",dong);
 			daoparmas.put("classify",classifies[i]);
-			res.put(classifies[i],mainservice.storeinfo(daoparmas));
+			res.put(classifies[i],mainservice.storeinfo(daoparmas,"all"));
 		}
 		return res;
 	}

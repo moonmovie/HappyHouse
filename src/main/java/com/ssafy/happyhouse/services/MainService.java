@@ -21,6 +21,6 @@ public interface MainService {
 	int wishInsertService(WishDto wishdto);
 	int wishDeleteService(WishDto wishdto);
 	int totalList(String dong);
-	List<StoreDto> storeinfo(Map<String,String>map);
+	List<StoreDto> storeinfo(Map<String,String>map,String mode);
 	
 }
