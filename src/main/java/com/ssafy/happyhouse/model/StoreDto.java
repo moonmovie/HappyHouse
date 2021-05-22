@@ -36,7 +36,15 @@ public class StoreDto {
 	private String newpost;
 	private String lon;
 	private String lat;
+	private double mindis;
 	
+	
+	public double getMindis() {
+		return mindis;
+	}
+	public void setMindis(double mindis) {
+		this.mindis = mindis;
+	}
 	public String getStoreid() {
 		return storeid;
 	}

@@ -136,17 +136,31 @@ $(document).ready(function () {
 
   document.getElementById("btn_search").addEventListener("click", () => {
     let dong = "";
+    let dongcode = "";
     document.getElementById("about1").style.display = "none";
     document.getElementById("about").style.display = "";
     document.getElementById("deallist").innerHTML = "";
     for (let i = 0; i < d.options.length; i++) {
       if (d.options[i].selected == true) {
         dong = d.options[i].textContent;
+        dongcode = d.options[i].value;
+        break;
       }
     }
     dongdeallist(dong, 1);
+    storedong(dongcode);
   });
 });
+
+function storedong(dongcode) {
+  $.ajax({
+    type: "GET",
+    url: `/code/store/${dongcode}`,
+    success: function (res) {
+      console.log(res);
+    },
+  });
+}
 
 function dongdeallist(dong, cur) {
   let ul = document.getElementById("ul_list");
