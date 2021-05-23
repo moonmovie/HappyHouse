@@ -135,20 +135,14 @@ $(document).ready(function () {
   });
 
   document.getElementById("btn_search").addEventListener("click", () => {
-    let dong = "";
-    let dongcode = "";
+    let dong = d.options[d.selectedIndex].text;
+    let sido = s.options[s.selectedIndex].text;
     document.getElementById("about1").style.display = "none";
     document.getElementById("about").style.display = "";
     document.getElementById("deallist").innerHTML = "";
-    for (let i = 0; i < d.options.length; i++) {
-      if (d.options[i].selected == true) {
-        dong = d.options[i].textContent;
-        dongcode = d.options[i].value;
-        break;
-      }
-    }
-    dongdeallist(dong, 1);
-    storedong(dongcode);
+
+    dongdeallist(dong, 1, d.value, sido);
+    storedong(d.value);
   });
 });
 
@@ -162,9 +156,10 @@ function storedong(dongcode) {
   });
 }
 
-function dongdeallist(dong, cur) {
+function dongdeallist(dong, cur, dongcode, sido) {
   let ul = document.getElementById("ul_list");
   let g = document.getElementById("gugun");
+  let gvalue = g.options[g.selectedIndex].text;
   $.ajax({
     type: "GET",
     url: `/code/house/${dong}/${cur}`,
@@ -206,6 +201,8 @@ function dongdeallist(dong, cur) {
             arr[0] = position[idx];
             drowmap(arr, 3, map);
             housedeal(ele.aptName, dong);
+            slipperarea(sido, gvalue, dongcode, ele.lat, ele.lng);
+            stationarea(ele.lat, ele.lng);
           });
         });
         let listli = document.createElement("li");
@@ -307,6 +304,19 @@ function addressmap(address, map) {
 
       // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
       map.setCenter(coords);
+    }
+  });
+}
+
+function addresstoxy(address) {
+  var geocoder = new kakao.maps.services.Geocoder();
+
+  // 주소로 좌표를 검색합니다
+  geocoder.addressSearch(address, function (result, status) {
+    // 정상적으로 검색이 완료됐으면
+    if (status === kakao.maps.services.Status.OK) {
+      console.log(result);
+      console.log(result[0].y, result[0].x);
     }
   });
 }
