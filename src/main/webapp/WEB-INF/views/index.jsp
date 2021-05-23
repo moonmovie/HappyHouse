@@ -152,11 +152,11 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </div>
       </section>
       <section id="about" class="about" style="display: none">
-        <div class="container">
+        <div>
           <div class="row content">
             <!-- 지도 왼쪽 부분 시작 -->
             <div
-              class="aptResult col-lg-5"
+              class="aptResult col-lg-3 ml-5 mr-5"
               data-aos="fade-right"
               data-aos-delay="100"
               style="padding-right: 15px"
@@ -172,11 +172,11 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
             <!-- ======= Map Section ======= -->
             <div
-              class="col-lg-7 pt-4 pt-lg-0"
+              class="col-lg-7 pt-4 pt-lg-0 "
               data-aos="fade-up"
               data-aos-delay="100"
             >
-              <div id="mapsec" style="width: 500px; height: 400px"></div>
+              <div id="mapsec" style="width: auto; height: 700px"></div>
             </div>
           </div>
         </div>
