@@ -92,7 +92,7 @@ public class MainServiceImpl implements MainService{
 				cur = list.get(i);
 				if(map.get("classify").equals("P")) {
 					//헬스클럽,실내운동시설,스포츠시설
-					if(cur.getDetail().contains("헬스클럽")||cur.getDetail().contains("실내운동시설")||cur.getDetail().contains("스포츠시설")) {
+					if(cur.getDetail().contains("헬스클럽")||cur.getDetail().contains("실내운동시설")||cur.getDetail().contains("스포츠센터")||cur.getDetail().contains("체육관")) {
 						
 					}else {
 						continue;
