@@ -56,7 +56,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               </div>
               <div class="col dtitle">
                 찜하기
-                <div class="dcontent">
+                <div class="dcontent" id="wish">
                   <i class="ri-heart-line"></i><i class="ri-heart-fill"></i>
                 </div>
               </div>

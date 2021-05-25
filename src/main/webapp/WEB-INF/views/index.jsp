@@ -100,6 +100,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
   <body>
     <%@ include file="./include/header.jsp"%>
+    
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
       <div
