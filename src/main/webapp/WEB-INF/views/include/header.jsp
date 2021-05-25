@@ -59,14 +59,14 @@
 				<ul>
 					<li class="active"><a href="#header">Home</a></li>
 					<li><a href="/notice.html">Notice</a></li>
-					<li><a href="#services">Today's News</a></li>
+					<li><a href="#">Today's News</a></li>
 					<li><a href="#contact">Contact</a></li>
 					<c:if test="${user eq null}"> <%-- 로그인이 안 되어 있다면 --%>
 						<li class="get-started"><a href="${root}/user/regist">SignUp</a> <%-- 회원가입 jsp 이동 --%>
 						<li class="get-started"><a id="login" onclick="javascript:openlogin();">Login</a></li> <%-- 로그인 화면 생성 --%>
 					</c:if>
 					<c:if test="${user ne null}">
-						<li><strong>${user.userName}</strong>님 환영합니다.</li>
+						<li><strong>${user.userName}</strong></li>
 						<c:choose>
 							<c:when test="${user.userType eq 'kakao'}">
 								<li><a href="${root}/user/kakao/logout">로그아웃</a></li>
