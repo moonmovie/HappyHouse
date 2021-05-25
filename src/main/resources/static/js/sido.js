@@ -189,11 +189,11 @@ function dongdeallist(dong, cur, dongcode, sido) {
             success: function (res) {
               console.log(res);
               if (res == 2) {
-                li.innerHTML += `<button type="button" id="regist_${ele.aptName}" style="display:block;">찜</button>`;
-                li.innerHTML += `<button type="button" id="delete_${ele.aptName}" style="display:none;">찜 해체</button>`;
+                li.innerHTML += `<i class="ri-heart-line" id="regist_${ele.aptName}" style="display:block;"></i>`;
+                li.innerHTML += `<i class="ri-heart-fill" id="delete_${ele.aptName}" style="display:none;"></i>`;
               } else if (res == 3) {
-                li.innerHTML += `<button type="button" id="delete_${ele.aptName}" style="display:block;">찜 해체</button>`;
-                li.innerHTML += `<button type="button" id="regist_${ele.aptName}" style="display:none;">찜</button>`;
+                li.innerHTML += `<i class="ri-heart-fill" id="delete_${ele.aptName}" style="display:block;"></i>`;
+                li.innerHTML += `<i class="ri-heart-line" id="regist_${ele.aptName}" style="display:none;"></i>`;
               }
             },
           });

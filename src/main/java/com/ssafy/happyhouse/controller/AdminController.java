@@ -38,7 +38,7 @@ public class AdminController {
 	}
 	
 	@PostMapping(value = "/member")
-	public ResponseEntity<List<MemberDto>> productRegister(@RequestBody MemberDto memberDto) throws Exception {
+	public ResponseEntity<List<MemberDto>> memberRegister(@RequestBody MemberDto memberDto) throws Exception {
 		memberService.registerMember(memberDto);
 		List<MemberDto> list = memberService.memberList();
 		return new ResponseEntity<List<MemberDto>>(list, HttpStatus.OK);
