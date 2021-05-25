@@ -103,7 +103,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             </button>
           </span>
         </div>
+        <div id="archeck" style="display: none">주소지를 재 확인해주세요.</div>
         <div id="map" style="width: 100%; height: 500px"></div>
+        <div class="dcontent">상세정보</div>
+        <div class="searchinfo"></div>
+        <div class="searchinfo"></div>
+        <div class="searchinfo"></div>
       </div>
     </section>
   </body>

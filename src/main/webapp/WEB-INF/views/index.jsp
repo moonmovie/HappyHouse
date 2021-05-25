@@ -53,7 +53,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=85b89f0f53a0acf2a6b95c053dc85e9b&libraries=services"
     ></script>
-    <script type="text/javascript" src="${root}/js/slipperarea.js"></script>
+    <script type="text/javascript" src="${root}/js/category.js"></script>
     <script type="text/javascript" src="${root}/js/dealResult.js"></script>
     <script type="text/javascript" src="${root}/js/pagination.js"></script>
     <script type="text/javascript" src="${root}/js/stationarea.js"></script>
@@ -245,16 +245,17 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </div>
       </section>
       <section class="about container"></section>
-      <section id="list" class="about">
-        <div class="row text-center" id="chart">
-          <div class="col-6" style="width: 400px; height: auto">
-            <canvas id="myChart"></canvas>
+      <section id="list" class="about container text-center">
+        <div class="mb-4" id="chartarea"></div>
+        <div class="container row text-center" id="chart">
+          <div class="col">
+            <canvas id="myChart" width="auto" height="300px"></canvas>
           </div>
-          <div class="col-6" style="width: 400px; height: auto">
-            <canvas id="stationChart"></canvas>
+          <div class="col" style="padding-top: 50px">
+            <canvas id="stationChart" width="500px" height="auto"></canvas>
           </div>
         </div>
-        <div class="container" style="display:hidden">
+        <div class="container" style="display: none">
           <table class="table" id="deallist"></table>
         </div>
       </section>
