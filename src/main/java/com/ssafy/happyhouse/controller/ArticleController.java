@@ -96,7 +96,11 @@ public class ArticleController {
 		}
 		return res;
 	}
-	
-	
+	@GetMapping("/hotdeal")
+	public List<HouseInfoDto> hothousedto(){
+		
+		
+		return null;
+	}
 
 }

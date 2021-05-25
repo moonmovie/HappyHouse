@@ -24,6 +24,13 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
+		return "main";
+	}
+	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String goindex(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
 		return "index";
 	}
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
