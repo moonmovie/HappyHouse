@@ -14,6 +14,7 @@ public class HouseDealDto {
 	private String area;
 	private String floor;
 	private String jibun;
+//	private String like;
 //	private String lat;
 //	private String lng;
 	

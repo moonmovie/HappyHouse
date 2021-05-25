@@ -26,5 +26,10 @@ public class HomeController {
 		
 		return "index";
 	}
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	public String detailpage(Locale locale, Model model) {
+		
+		return "detail";
+	}
 	
 }

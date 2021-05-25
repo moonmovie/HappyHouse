@@ -59,7 +59,7 @@
 				<ul>
 					<li class="active"><a href="#header">Home</a></li>
 					<li><a href="/notice.html">Notice</a></li>
-					<li><a href="#services">Today's News</a></li>
+					<li><a href="#">Today's News</a></li>
 					<li><a href="#contact">Contact</a></li>
 					<c:if test="${user eq null}"> <%-- 로그인이 안 되어 있다면 --%>
 						<li class="get-started"><a href="${root}/user/regist">SignUp</a> <%-- 회원가입 jsp 이동 --%>
