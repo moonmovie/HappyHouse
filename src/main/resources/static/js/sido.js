@@ -181,13 +181,8 @@ function dongdeallist(dong, cur, dongcode, sido) {
           let li = document.createElement("li");
           li.setAttribute("class", "list-group-item");
           li.innerHTML = `매물정보 : ${ele.aptName}<br>`;
-          li.innerHTML += `건축년도 : ${ele.buildYear}<br>`;
-          li.innerHTML += `<a href="/detail?lng=${ele.lng}&lat=${
-              ele.lat
-            }&apt=${encodeURIComponent(ele.aptName)}&dong=${encodeURIComponent(
-              dong
-            )}">상세보기</a>`;
-          
+          li.innerHTML += `건축년도 : ${ele.buildYear}`;
+
           $.ajax({
             type: "GET",
             url: `/wish/check/${ele.aptName}`,
