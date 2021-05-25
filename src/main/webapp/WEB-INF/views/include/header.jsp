@@ -64,9 +64,9 @@
 					<c:if test="${user eq null}"> <%-- 로그인이 안 되어 있다면 --%>
 						<li class="get-started"><a href="${root}/user/regist">SignUp</a> <%-- 회원가입 jsp 이동 --%>
 						<li class="get-started"><a id="login" onclick="javascript:openlogin();">Login</a></li> <%-- 로그인 화면 생성 --%>
-					</c:if>
+					</c:if><br>
 					<c:if test="${user ne null}">
-						<li><strong>${user.userName}</strong></li>
+						<li><strong>${user.userName}</strong>님</li>
 						<c:choose>
 							<c:when test="${user.userType eq 'kakao'}">
 								<li><a href="${root}/user/kakao/logout">로그아웃</a></li>
@@ -80,7 +80,9 @@
 							<li><a href="${root}/user/list">회원 관리</a></li>
 						</c:if>
 						<li><a href="${root}/user/select">개인정보 조회</a></li>
+						<li><a href="${root}/user/wish">찜 목록</a></li>
 					</c:if>
+				</ul>
 				</ul>
 			</nav>
 			<!-- nav-menu -->

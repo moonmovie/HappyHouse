@@ -156,7 +156,6 @@ function dongdeallist(dong, cur, dongcode, sido) {
       let map = document.getElementById("mapsec");
       document.getElementById("paging").innerHTML = "";
       ul.innerHTML = "";
-      let inner = "";
       let position = [];
       if (res.list.length == 0) {
         let address = "";
@@ -171,7 +170,6 @@ function dongdeallist(dong, cur, dongcode, sido) {
         ul.innerHTML = "매물 정보가 없습니다.";
         addressmap(address, map);
       } else {
-        let i = 0;
         res.list.forEach((ele, idx) => {
           console.log(ele);
 
@@ -182,14 +180,50 @@ function dongdeallist(dong, cur, dongcode, sido) {
           };
           let li = document.createElement("li");
           li.setAttribute("class", "list-group-item");
-          li.innerHTML += `매물정보 : ${ele.aptName}<br>`;
-          li.innerHTML += `건축년도 : ${ele.buildYear}<br>`;
-          li.innerHTML += `<a href="/detail?lng=${ele.lng}&lat=${
-            ele.lat
-          }&apt=${encodeURIComponent(ele.aptName)}&dong=${encodeURIComponent(
-            dong
-          )}">상세보기</a>`;
+          li.innerHTML = `매물정보 : ${ele.aptName}<br>`;
+          li.innerHTML += `건축년도 : ${ele.buildYear}`;
+
+          $.ajax({
+            type: "GET",
+            url: `/wish/check/${ele.aptName}`,
+            success: function (res) {
+              console.log(res);
+              if (res == 2) {
+                li.innerHTML += `<button type="button" id="regist_${ele.aptName}" style="display:block;">찜</button>`;
+                li.innerHTML += `<button type="button" id="delete_${ele.aptName}" style="display:none;">찜 해체</button>`;
+              } else if (res == 3) {
+                li.innerHTML += `<button type="button" id="delete_${ele.aptName}" style="display:block;">찜 해체</button>`;
+                li.innerHTML += `<button type="button" id="regist_${ele.aptName}" style="display:none;">찜</button>`;
+              }
+            },
+          });
+
           ul.appendChild(li);
+
+          $(document).on("click", "#regist_" + ele.aptName, function () {
+            $.ajax({
+              type: "GET",
+              url: `/wish/regist/${ele.aptName}`,
+              success: function () {
+                console.log("버튼이?")
+                document.getElementById('regist_' + ele.aptName).style.display = 'none';
+                document.getElementById('delete_' + ele.aptName).style.display = 'block';
+              }
+            });
+          });
+
+          $(document).on("click", "#delete_" + ele.aptName, function () {
+            $.ajax({
+              type: "DELETE",
+              url: `/wish/delete/${ele.aptName}`,
+              success: function () {
+                console.log("버튼이?")
+                document.getElementById('delete_' + ele.aptName).style.display = 'none';
+                document.getElementById('regist_' + ele.aptName).style.display = 'block';
+                }
+            });
+          });
+  
           li.addEventListener("click", () => {
             let arr = [];
             arr[0] = position[idx];
@@ -199,6 +233,7 @@ function dongdeallist(dong, cur, dongcode, sido) {
             stationarea(ele.lat, ele.lng);
             //            searchAddrFromCoords(ele.lng, ele.lat);
           });
+
         });
         let listli = document.createElement("li");
         listli.setAttribute("class", "list-group-item");
@@ -295,11 +330,8 @@ function drowmap(position, num, map) {
 
     for (var i = 0; i < places.length; i++) {
       // 마커를 생성하고 지도에 표시합니다
-      var marker = addMarker(
-        new kakao.maps.LatLng(places[i].y, places[i].x),
-        order
-      );
-      console.log("좌표: ", places[i].y, places[i].x);
+      var marker = addMarker(new kakao.maps.LatLng(places[i].y, places[i].x), order);
+      
       // 마커와 검색결과 항목을 클릭 했을 때
       // 장소정보를 표출하도록 클릭 이벤트를 등록합니다
       (function (marker, place) {
