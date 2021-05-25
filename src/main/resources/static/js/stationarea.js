@@ -17,7 +17,7 @@ function stationarea(lat, lon) {
 function busstop(lat, lon) {
   $.ajax({
     type: "GET",
-    url: `https://api.odsay.com/v1/api/pointSearch?apiKey=mUuLRBLLwsYwoKSIaAigC4%2B2hvI5jvgo98BH1v%2BfZIE&y=${lat}&x=${lon}&radius=800&stationClass=1`,
+    url: `https://api.odsay.com/v1/api/pointSearch?apiKey=mUuLRBLLwsYwoKSIaAigC4%2B2hvI5jvgo98BH1v%2BfZIE&y=${lat}&x=${lon}&radius=400&stationClass=1`,
     success: function (res) {
       busStation = res.result.count;
       let stations = res.result.station;
@@ -38,7 +38,7 @@ function drawStationinfo(subway, bus) {
         data: [subway, bus],
         backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(244, 208, 63, 0.2)"],
         borderColor: ["rgba(255, 99, 132, 1)", "rgba(244, 208, 63, 1)"],
-         borderWidth: 1,
+        borderWidth: 1,
       },
     ],
   };

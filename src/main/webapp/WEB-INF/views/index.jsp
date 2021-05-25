@@ -53,7 +53,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=85b89f0f53a0acf2a6b95c053dc85e9b&libraries=services"
     ></script>
-    <script type="text/javascript" src="${root}/js/slipperarea.js"></script>
+    <script type="text/javascript" src="${root}/js/category.js"></script>
     <script type="text/javascript" src="${root}/js/dealResult.js"></script>
     <script type="text/javascript" src="${root}/js/pagination.js"></script>
     <script type="text/javascript" src="${root}/js/stationarea.js"></script>
@@ -253,7 +253,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <canvas id="stationChart"></canvas>
           </div>
         </div>
-        <div class="container" style="display:hidden">
+        <div class="container" style="display: none">
           <table class="table" id="deallist"></table>
         </div>
       </section>
