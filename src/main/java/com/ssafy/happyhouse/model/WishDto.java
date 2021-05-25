@@ -1,21 +1,22 @@
 package com.ssafy.happyhouse.model;
 
 public class WishDto {
-	int no;
-	int userno;
+	String userId;
+	String AptName;
 	String dong;
-	
-	public int getNo() {
-		return no;
+	String buildYear;
+
+	public String getUserId() {
+		return userId;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-	public int getUserno() {
-		return userno;
+	public String getAptName() {
+		return AptName;
 	}
-	public void setUserno(int userno) {
-		this.userno = userno;
+	public void setAptName(String aptName) {
+		AptName = aptName;
 	}
 	public String getDong() {
 		return dong;
@@ -23,5 +24,17 @@ public class WishDto {
 	public void setDong(String dong) {
 		this.dong = dong;
 	}
+	public String getBuildYear() {
+		return buildYear;
+	}
+	public void setBuildYear(String buildYear) {
+		this.buildYear = buildYear;
+	}
+	@Override
+	public String toString() {
+		return "WishDto [userId=" + userId + ", AptName=" + AptName + ", dong=" + dong + ", buildYear=" + buildYear
+				+ "]";
+	}
+	
 	
 }

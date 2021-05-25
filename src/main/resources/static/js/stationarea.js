@@ -6,9 +6,9 @@ function stationarea(lat, lon) {
     type: "GET",
     url: `https://api.odsay.com/v1/api/pointSearch?apiKey=mUuLRBLLwsYwoKSIaAigC4%2B2hvI5jvgo98BH1v%2BfZIE&y=${lat}&x=${lon}&radius=800&stationClass=2`,
     success: function (res) {
-      subwayStation = res.result.count;
-      let stationss = res.result.station;
-      console.log("subway ", subwayStation);
+      // subwayStation = res.result.count;
+//      let stationss = res.result.station;
+      // console.log("subway ", subwayStation);
       busstop(lat, lon);
     },
   });
@@ -19,10 +19,10 @@ function busstop(lat, lon) {
     type: "GET",
     url: `https://api.odsay.com/v1/api/pointSearch?apiKey=mUuLRBLLwsYwoKSIaAigC4%2B2hvI5jvgo98BH1v%2BfZIE&y=${lat}&x=${lon}&radius=800&stationClass=1`,
     success: function (res) {
-      busStation = res.result.count;
-      let stations = res.result.station;
-      console.log("bus ", busStation);
-      console.log(subwayStation, busStation);
+//      busStation = res.result.count;
+//      let stations = res.result.station;
+//      console.log("bus ", busStation);
+//      console.log(subwayStation, busStation);
       drawStationinfo(subwayStation, busStation);
     },
   });

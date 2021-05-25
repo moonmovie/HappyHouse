@@ -9,9 +9,9 @@ function slipperarea(sido, gugun, dong, lat, lon) {
     type: "GET",
     url: `https://api.odsay.com/v1/api/pointSearch?apiKey=mUuLRBLLwsYwoKSIaAigC4%2B2hvI5jvgo98BH1v%2BfZIE&y=${lat}&x=${lon}&radius=700&stationClass=2`,
     success: function (res) {
-      let count = res.result.count;
-      console.log("odsay " + count);
-      console.log(res);
+      // let count = res.result.count;
+      // console.log("odsay " + count);
+//      console.log(res);
       slipperscore[4] = 5;
     },
   });
