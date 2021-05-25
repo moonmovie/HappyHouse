@@ -2,14 +2,6 @@ function category(lat, lon) {
   // D마트,편의점 pharmacy약국 지하철,버스 P운동시설 Q카페 500미터 기준
   //200미터 이내 5점 300m 4점 400 3점 500 2점 그 외 1점
   //P Q D 약국 대중교통 순
-  let slipperscore = [];
-  let dd = [0, 0, 0, 0, 0];
-  let max = 0;
-  //편의점, 대형마트, 카페, 은행, 병원
-  let datakey = ["CS2", "MT1", "CE7", "BK9", "HP8"];
-
-  var places = new kakao.maps.services.Places();
-  let time = 0;
 
   // let categorysearch = (key) => {
   //   return new Promise((resolve, reject) => {
@@ -86,25 +78,15 @@ function category(lat, lon) {
   //   }
   // };
 
-  // var callback = function (result, status) {
-  //   time++;
-  //   if (status === kakao.maps.services.Status.OK) {
-  //     let len = result.length;
-  //     if (result == null) {
-  //       slipperscore.push(0);
-  //     } else {
-  //       // console.log("category ", slipperscore);
-  //       slipperscore.push(len);
-  //       max = max < len ? len : max;
-  //     }
-  //   } else {
-  //     slipperscore.push(0);
-  //   }
-  //   if (time == 4) {
-  //     console.log("max ", max);
-  //     drawchart(slipperscore, max);
-  //   }
-  // };
+  let slipperscore = [];
+  let dd = [0, 0, 0, 0, 0];
+  let max = 0;
+  //편의점, 대형마트, 카페, 은행, 병원
+  let datakey = ["CS2", "MT1", "CE7", "BK9", "HP8"];
+
+  var places = new kakao.maps.services.Places();
+  let time = 0;
+
   var callback = function (result, status) {
     time++;
     if (status === kakao.maps.services.Status.OK) {
@@ -142,7 +124,7 @@ function category(lat, lon) {
   };
 
   for (let i = 0; i < 5; i++) {
-    if (datakey[i] == "MT1") {
+    if (i == 1) {
       places.categorySearch(datakey[i], callback, {
         location: new kakao.maps.LatLng(lat, lon),
         radius: 500,
@@ -179,7 +161,7 @@ function drawchart(dataarr, maxdata) {
       legend: {
         display: false,
       },
-      responsive: true,
+      responsive: false,
       title: {
         display: true,
         text: "슬세권 수치",

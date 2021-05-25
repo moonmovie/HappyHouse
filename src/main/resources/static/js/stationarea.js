@@ -2,6 +2,12 @@ let subwayStation = 0;
 let busStation = 0;
 
 function stationarea(lat, lon) {
+  let d = document.getElementById("dong");
+  let dstr = d.options[d.selectedIndex].text;
+  document.getElementById(
+    "chartarea"
+  ).innerHTML = `<h3>슬세권 역세권 확인해보세요</h3>`;
+
   $.ajax({
     type: "GET",
     url: `https://api.odsay.com/v1/api/pointSearch?apiKey=mUuLRBLLwsYwoKSIaAigC4%2B2hvI5jvgo98BH1v%2BfZIE&y=${lat}&x=${lon}&radius=800&stationClass=2`,
@@ -9,7 +15,7 @@ function stationarea(lat, lon) {
       subwayStation = res.result.count;
       let stationss = res.result.station;
       console.log("subway ", subwayStation);
-      busstop(lat, lon);
+      setTimeout(busstop(lat, lon), 1000);
     },
   });
 }
@@ -49,8 +55,11 @@ function drawStationinfo(subway, bus) {
     options: {
       legend: {
         display: false,
+        labels: {
+          fontSize: 18,
+        },
       },
-      responsive: true,
+      responsive: false,
       title: {
         display: true,
         text: `역세권 수치`,

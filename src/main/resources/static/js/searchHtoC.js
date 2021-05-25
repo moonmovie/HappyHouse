@@ -29,35 +29,42 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function searchmapObj(SX, SY, EX, EY) {
+  let infodiv = document.getElementsByClassName("searchinfo");
   $.ajax({
     type: "GET",
     url: `https://api.odsay.com/v1/api/searchPubTransPathT?apiKey=mUuLRBLLwsYwoKSIaAigC4%2B2hvI5jvgo98BH1v%2BfZIE&SX=${SX}&SY=${SY}&EX=${EX}&EY=${EY}&OPT=0`,
 
     success: function (response) {
       console.log(response);
-      searchHtoC(SY, SX, response.result.path[0].info.mapObj);
+      infodiv[0].innerHTML = `최적 경로 총 소요 시간 : ${response.result.path[0].info.totalTime}`;
+      searchHtoC(SY, SX, response.result.path[0].info.mapObj, EY, EX);
     },
   });
 }
 function addresstoxy(lng, lat, address) {
   var geocoder = new kakao.maps.services.Geocoder();
-
+  let archeck = document.getElementById("archeck");
   // 주소로 좌표를 검색합니다
   geocoder.addressSearch(address, function (result, status) {
     // 정상적으로 검색이 완료됐으면
     if (status === kakao.maps.services.Status.OK) {
       console.log(lng, lat, result[0].y, result[0].x);
       searchmapObj(lng, lat, result[0].x, result[0].y);
+      archeck.style.display = "none";
       //      let s=result;
       //      console.log(s);
 
       //    return s;
       //      console.log(result[0].y, result[0].x);
+    } else {
+      console.log(status);
+      console.log("주소지를 재 확인해주세요.");
+      archeck.style.display = "block";
     }
   });
 }
 
-function searchHtoC(lan, lat, mapObj) {
+function searchHtoC(lan, lat, mapObj, elan, elat) {
   var mapContainer = document.getElementById("map"); // 지도를 표시할 div
   mapOption = {
     center: new kakao.maps.LatLng(lan, lat), // 지도의 중심좌표
@@ -66,12 +73,13 @@ function searchHtoC(lan, lat, mapObj) {
 
   var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
   var linePath = [];
-  var coords = new kakao.maps.LatLng(lan, lat);
+
   $.ajax({
     type: "get",
     url: `https://api.odsay.com/v1/api/loadLane?apiKey=mUuLRBLLwsYwoKSIaAigC4%2B2hvI5jvgo98BH1v%2BfZIE&lang=0&mapObject=0:0@${mapObj}`,
     success: function (res) {
       console.log(res);
+
       let graphPos = res.result.lane[0].section[0].graphPos;
       graphPos.forEach((ele) => {
         linePath.push(new kakao.maps.LatLng(ele.y, ele.x));
@@ -79,19 +87,29 @@ function searchHtoC(lan, lat, mapObj) {
       // 지도에 표시할 선을 생성합니다
       var polyline = new kakao.maps.Polyline({
         path: linePath, // 선을 구성하는 좌표배열 입니다
-        strokeWeight: 5, // 선의 두께 입니다
-        strokeColor: "#F4583F", // 선의 색깔입니다
+        strokeWeight: 7, // 선의 두께 입니다
+        strokeColor: "#2DF946", // 선의 색깔입니다
         strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
         strokeStyle: "solid", // 선의 스타일입니다
       });
-
-      marker = new kakao.maps.Marker({
-        position: coords, // 마커의 위치
+      var markers = [];
+      let markerstart = new kakao.maps.Marker({
+        position: new kakao.maps.LatLng(lan, lat), // 마커의 위치
         image: markerImage,
       });
-      marker.setMap(map);
+      markers.push(markerstart);
+      let markerend = new kakao.maps.Marker({
+        position: new kakao.maps.LatLng(elan, elat), // 마커의 위치
+        image: markerImage,
+      });
+      markers.push(markerend);
+
       // 지도에 선을 표시합니다
       polyline.setMap(map);
+      console.log(markers);
+      for (let i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+      }
     },
   });
 }

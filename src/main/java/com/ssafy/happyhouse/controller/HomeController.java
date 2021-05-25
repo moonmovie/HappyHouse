@@ -31,5 +31,9 @@ public class HomeController {
 		
 		return "detail";
 	}
-	
+	@RequestMapping(value = "/notice", method = RequestMethod.GET)
+	public String noticepage(Locale locale, Model model) {
+		
+		return "notice";
+	}
 }
