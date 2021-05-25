@@ -229,7 +229,8 @@ function dongdeallist(dong, cur, dongcode, sido) {
             arr[0] = position[idx];
             drowmap(arr, 3, map);
             // housedeal(ele.aptName, dong);
-            slipperarea(sido, gvalue, dongcode, ele.lat, ele.lng);
+            // slipperarea(sido, gvalue, dongcode, ele.lat, ele.lng);
+            category(ele.lat, ele.lng);
             stationarea(ele.lat, ele.lng);
             //            searchAddrFromCoords(ele.lng, ele.lat);
           });
