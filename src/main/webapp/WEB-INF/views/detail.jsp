@@ -8,7 +8,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
   <head>
     <meta charset="UTF-8" />
     <title>HAPPYHOUSE</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="/vendor/jquery/jquery.min.js"></script>
     <link
       rel="icon"
@@ -21,6 +21,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       href="${root}/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link href="${root}/vendor/icofont/icofont.min.css" rel="stylesheet" />
+    <link
+      href="${root}/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="${root}/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="${root}/vendor/venobox/venobox.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
       rel="stylesheet"
@@ -40,7 +47,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
     <script type="text/javascript" src="${root}/js/searchHtoC.js"></script>
   </head>
-
+  <style></style>
   <body>
     <%@ include file="./include/header.jsp"%>
     <section>
@@ -80,22 +87,25 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <div class="text-center">
         <h3>매매 정보</h3>
       </div>
-      <table
-        class="table"
-        id="deallist"
-        style="width: 800px; margin-left: auto; margin-right: auto"
-      ></table>
+      <div class="table-responsive">
+        <table
+          class="table"
+          id="deallist"
+          style="width: 800px; margin-left: auto; margin-right: auto"
+        ></table>
+      </div>
     </div>
 
-    <section>
+    <section style="background-color: #f7f9f9">
       <div class="container">
         <div class="dcontent">
-          <i class="ri-home-4-line" style="font-size: 40px"></i>
+          <!-- <i class="ri-home-4-line" style="font-size: 40px"></i>
           <i class="ri-arrow-left-right-fill" style="font-size: 40px"></i>
-          <i class="ri-building-line" style="font-size: 40px"></i>
-          <div class="row">
-            <div class="col">얼마나 걸릴까요? 출근 시간을 확인해보세요</div>
-            <div class="col" id="archeck" style="display: none">
+          <i class="ri-building-line" style="font-size: 40px"></i> -->
+          <div>
+            <i class="ri-building-line" style="font-size: 40px"></i>
+            <div class="mb-4">얼마나 걸릴까요? 출근 시간을 확인해보세요</div>
+            <div id="archeck" style="display: none">
               주소지를 재 확인해주세요.
             </div>
           </div>
@@ -106,6 +116,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             class="form-control"
             id="address"
             placeholder="출근지 주소를 입력"
+            value="서울특별시 종로구 혜화동 창경궁로 296-12"
           />
           <span class="input-group-btn mb-3">
             <button class="btn btn-default" id="loadsearch" type="button">
@@ -113,14 +124,18 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             </button>
           </span>
         </div>
-        <div id="archeck" style="display: none">주소지를 재 확인해주세요.</div>
+
         <div id="map" style="width: 100%; height: 500px"></div>
-        <div class="dcontent">상세정보</div>
-        <div class="searchinfo"></div>
-        <div class="searchinfo"></div>
-        <div class="searchinfo"></div>
+
+        <div class="container text-center">
+          <div class="mt-3" id="tabletitle" style="font-size: 20px"></div>
+          <div class="table-responsive mt-5">
+            <table class="table table-hover" id="top5"></table>
+          </div>
+        </div>
       </div>
     </section>
+    <%@ include file="./include/footer.html"%>
   </body>
 
   <script src="/vendor/counterup/counterup.min.js"></script>
