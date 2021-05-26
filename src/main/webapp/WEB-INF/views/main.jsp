@@ -10,7 +10,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <title>HAPPYHOUSE</title>
 
     <script src="/vendor/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="${root}/js/mainpage.js"></script>
+
     <!-- Vendor CSS Files -->
     <!-- Favicons -->
     <link
@@ -42,9 +42,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
       rel="stylesheet"
     />
-   
+    <script src="/js/mainpage.js"></script>
   </head>
-
+	
   <body>
     <%@ include file="./include/header.jsp"%>
     <section id="hero" class="d-flex align-items-center">
@@ -78,63 +78,22 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               <p>현재 사용자들의 실거래 조회가 높은 매물들입니다.</p>
             </div>
           </div>
-          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100" id="hlike">
-            <!-- <div class="owl-carousel testimonials-carousel" > -->
-              <!-- <div class="testimonial-item">
-                <div width="250px" height="250px">
-                  <img src="/img/apt/apt3.jpg" class="testimonial-img" alt="" />
+          <div
+            class="col-lg-8"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            id="hlike"
+          >
+            <div class="owl-carousel testimonials-carousel">
+              <c:forEach items="${infolist}" var="info">
+                <div class="testimonial-item">
+                  <img src="/img${info.img}" class="testimonial-img" onclick="link(${info.lng},${info.lat},'${info.aptName}','${info.dong}')" alt="" />
+                  <h3>${info.aptName}</h3>
+                  <p>완공년도 | ${info.buildYear}</p>
+                  <p>서울시  ${info.jibun}</p>
                 </div>
-
-                <h3>솔하임아파트</h3>
-                <h4>실거래가 | 2억 3000만원</h4>
-              </div> -->
-              
-              <!-- <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i> Quis
-                  quorum aliqua sint quem legam fore sunt eram irure aliqua
-                  veniam tempor noster veniam enim culpa labore duis sunt culpa
-                  nulla illum cillum fugiat legam esse veniam culpa fore nisi
-                  cillum quid.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img
-                  src="/img/apt/apt1.jpg"
-                  class="testimonial-img"
-                  alt=""
-                />
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i> Fugiat
-                  enim eram quae cillum dolore dolor amet nulla culpa multos
-                  export minim fugiat minim velit minim dolor enim duis veniam
-                  ipsum anim magna sunt elit fore quem dolore labore illum
-                  veniam.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img
-                  src="/img/apt/apt2.jpg"
-                  class="testimonial-img"
-                  alt=""
-                />
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-              </div>
-
-              <div class="testimonial-item">
-                
-                <img
-                  src="/img/apt/apt3.jpg"
-                  class="testimonial-img"
-                  alt=""
-                />
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div> -->
-            <!-- </div> -->
+              </c:forEach>
+            </div>
           </div>
         </div>
       </div>
@@ -144,10 +103,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
   <script src="/vendor/counterup/counterup.min.js"></script>
   <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="/vendor/venobox/venobox.min.js"></script>
-  <script src="/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="/vendor/aos/aos.js"></script>
 
+  <script src="/vendor/aos/aos.js"></script>
+  <!-- <script type="text/javascript" src="${root}/js/mainpage.js"></script> -->
   <!-- Template Main JS File -->
+  <!-- <script type="text/javascript" src="/js/mainpage.js"></script> -->
+  <script src="/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="/js/main.js"></script>
   <script></script>
 </html>
