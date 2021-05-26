@@ -181,28 +181,54 @@ function dongdeallist(dong, cur, dongcode, sido) {
           };
           let li = document.createElement("li");
           li.setAttribute("class", "list-group-item");
-          li.innerHTML = `매물정보 : ${ele.aptName}<br>`;
-          li.innerHTML += `건축년도 : ${ele.buildYear}<br>`;
-          li.innerHTML += `<a href="/detail?lng=${ele.lng}&lat=${
-            ele.lat
-          }&apt=${encodeURIComponent(ele.aptName)}&dong=${encodeURIComponent(
-            dong
-          )}">상세보기</a>`;
+          li.innerHTML = "";
+
+          
+
           $.ajax({
             type: "GET",
             url: `/wish/check/${ele.aptName}`,
             success: function (res) {
               console.log(res);
               if (res == 2) {
-                li.innerHTML += `<i class="ri-heart-line" id="regist_${ele.aptName}" style="display:block;"></i>`;
-                li.innerHTML += `<i class="ri-heart-fill" id="delete_${ele.aptName}" style="display:none;"></i>`;
+            	  if(ele.img != null){
+                	  li.innerHTML += `<div style="float:left; width:230px; height:230px;">매물정보 : ${ele.aptName}<br>
+                	  				건축년도 : ${ele.buildYear}<br><a href="/detail?lng=${ele.lng}&lat=${ele.lat}&apt=${encodeURIComponent(ele.aptName)}
+                	  				&dong=${encodeURIComponent(dong)}&img=${ele.img}">상세보기</a>
+                	  				<i class="ri-heart-fill" id="delete_${ele.aptName}" style="display:block;"></i>
+                	  				<i class="ri-heart-line" id="regist_${ele.aptName}" style="display:none;"></i></div>`;
+                  }else{
+                	  li.innerHTML += `<div style="float:left; width:230px; height:230px;">매물정보 : ${ele.aptName}<br>
+                	  				건축년도 : ${ele.buildYear}<br><a href="/detail?lng=${ele.lng}&lat=${ele.lat}&apt=${encodeURIComponent(ele.aptName)}
+                	  				&dong=${encodeURIComponent(dong)}&img=1">상세보기</a>
+                	  				<i class="ri-heart-fill" id="delete_${ele.aptName}" style="display:block;"></i>
+                	  				<i class="ri-heart-line" id="regist_${ele.aptName}" style="display:none;"></i></div>`;
+                  }
               } else if (res == 3) {
-                li.innerHTML += `<i class="ri-heart-fill" id="delete_${ele.aptName}" style="display:block;"></i>`;
-                li.innerHTML += `<i class="ri-heart-line" id="regist_${ele.aptName}" style="display:none;"></i>`;
+            	  if(ele.img != null){
+                	  li.innerHTML += `<div style="float:left; width:230px; height:230px;">매물정보 : ${ele.aptName}<br>
+                	  				건축년도 : ${ele.buildYear}<br><a href="/detail?lng=${ele.lng}&lat=${ele.lat}&apt=${encodeURIComponent(ele.aptName)}
+                	  				&dong=${encodeURIComponent(dong)}&img=${ele.img}">상세보기</a>
+                	  				<i class="ri-heart-fill" id="delete_${ele.aptName}" style="display:block;"></i>
+                	  				<i class="ri-heart-line" id="regist_${ele.aptName}" style="display:none;"></i></div>`;
+                  }else{
+                	  li.innerHTML += `<div style="float:left; width:230px; height:230px;">매물정보 : ${ele.aptName}<br>
+                	  				건축년도 : ${ele.buildYear}<br><a href="/detail?lng=${ele.lng}&lat=${ele.lat}&apt=${encodeURIComponent(ele.aptName)}
+                	  				&dong=${encodeURIComponent(dong)}&img=1">상세보기</a>
+                	  				<i class="ri-heart-fill" id="delete_${ele.aptName}" style="display:block;"></i>
+                	  				<i class="ri-heart-line" id="regist_${ele.aptName}" style="display:none;"></i></div>`;
+                  }
+                
               }
+              
             },
           });
-
+          if(ele.img != null){
+        	  li.innerHTML += `<div style="float:right"><img src="img/${ele.img}" width="230" height="230">`;
+          }else{
+        	  li.innerHTML += `<div style="float:right"><img src="img/noimg.JPG" width="230" height="230">`;
+          }
+          li.innerHTML += `</div>`;
           ul.appendChild(li);
 
           $(document).on("click", "#regist_" + ele.aptName, function () {
