@@ -10,10 +10,15 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <title>HAPPYHOUSE</title>
 
     <script src="/vendor/jquery/jquery.min.js"></script>
-
+    <script type="text/javascript" src="${root}/js/mainpage.js"></script>
     <!-- Vendor CSS Files -->
     <!-- Favicons -->
-	<link rel="icon" type="image/png" sizes="32x32" href="${root}/favicon.png">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="${root}/favicon.png"
+    />
     <!-- Vendor CSS Files -->
     <link
       href="${root}/vendor/bootstrap/css/bootstrap.min.css"
@@ -37,6 +42,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
       rel="stylesheet"
     />
+   
   </head>
 
   <body>
@@ -72,58 +78,34 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               <p>현재 사용자들의 실거래 조회가 높은 매물들입니다.</p>
             </div>
           </div>
-          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
-            <div class="owl-carousel testimonials-carousel">
-              <div class="testimonial-item">
-                <img src="/img/apt/apt1.jpg" class="testimonial-img" alt="" />
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100" id="hlike">
+            <!-- <div class="owl-carousel testimonials-carousel" > -->
+              <!-- <div class="testimonial-item">
+                <div width="250px" height="250px">
+                  <img src="/img/apt/apt3.jpg" class="testimonial-img" alt="" />
+                </div>
+
                 <h3>솔하임아파트</h3>
                 <h4>실거래가 | 2억 3000만원</h4>
-                <!-- <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i> Proin
-                  iaculis purus consequat sem cure digni ssim donec porttitora
-                  entum suscipit rhoncus. Accusantium quam, ultricies eget id,
-                  aliquam eget nibh et. Maecen aliquam, risus at semper.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p> -->
-
-                <!-- <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4> -->
-              </div>
-
-              <div class="testimonial-item">
+              </div> -->
+              
+              <!-- <div class="testimonial-item">
                 <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i> Export
-                  tempor illum tamen malis malis eram quae irure esse labore
-                  quem cillum quid cillum eram malis quorum velit fore eram
-                  velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i> Quis
+                  quorum aliqua sint quem legam fore sunt eram irure aliqua
+                  veniam tempor noster veniam enim culpa labore duis sunt culpa
+                  nulla illum cillum fugiat legam esse veniam culpa fore nisi
+                  cillum quid.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img
-                  src="/img/testimonials/testimonials-2.jpg"
+                  src="/img/apt/apt1.jpg"
                   class="testimonial-img"
                   alt=""
                 />
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
+                <h3>John Larson</h3>
+                <h4>Entrepreneur</h4>
               </div>
-
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i> Enim
-                  nisi quem export duis labore cillum quae magna enim sint
-                  quorum nulla quem veniam duis minim tempor labore quem eram
-                  duis noster aute amet eram fore quis sint minim.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img
-                  src="/img/testimonials/testimonials-3.jpg"
-                  class="testimonial-img"
-                  alt=""
-                />
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-              </div>
-
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i> Fugiat
@@ -134,7 +116,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img
-                  src="/img/testimonials/testimonials-4.jpg"
+                  src="/img/apt/apt2.jpg"
                   class="testimonial-img"
                   alt=""
                 />
@@ -143,23 +125,16 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               </div>
 
               <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i> Quis
-                  quorum aliqua sint quem legam fore sunt eram irure aliqua
-                  veniam tempor noster veniam enim culpa labore duis sunt culpa
-                  nulla illum cillum fugiat legam esse veniam culpa fore nisi
-                  cillum quid.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
+                
                 <img
-                  src="/img/testimonials/testimonials-5.jpg"
+                  src="/img/apt/apt3.jpg"
                   class="testimonial-img"
                   alt=""
                 />
                 <h3>John Larson</h3>
                 <h4>Entrepreneur</h4>
-              </div>
-            </div>
+              </div> -->
+            <!-- </div> -->
           </div>
         </div>
       </div>

@@ -44,4 +44,15 @@
 		where bcode=#{dongcode} and scode=#{classify}
 	</select>
 	
+	<select id="hotlike" resultType="houseInfoDto">
+		select * from houseinfo
+		where AptName in(select * from(
+		select AptName from wishlist
+		group by AptName
+		order by count(*)  desc
+		limit 0,7
+		) as tmp)
+		group by AptName;
+	</select>
+	
 </mapper>

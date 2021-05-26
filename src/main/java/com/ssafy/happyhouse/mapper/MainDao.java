@@ -22,4 +22,5 @@ public interface MainDao {
 	int wishInsertDao(WishDto wishdto);
 	int totalList(String dong);
 	List<StoreDto> storeinfo(Map<String,String>map);
+	List<HouseInfoDto> hotlike();
 }
