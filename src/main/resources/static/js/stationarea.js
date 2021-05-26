@@ -64,6 +64,11 @@ function drawStationinfo(subway, bus) {
         display: true,
         text: `역세권 수치`,
       },
+      scales: {
+        x: {
+          beginAtZero: true,
+        },
+      },
     },
     tooltips: {
       mode: "index",
@@ -71,7 +76,7 @@ function drawStationinfo(subway, bus) {
     },
     hover: {
       mode: "nearest",
-      intersect: true,
+      intersect: false,
     },
   };
 

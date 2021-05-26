@@ -44,7 +44,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     />
     <script src="/js/mainpage.js"></script>
   </head>
-	
+
   <body>
     <%@ include file="./include/header.jsp"%>
     <section id="hero" class="d-flex align-items-center">
@@ -87,10 +87,15 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <div class="owl-carousel testimonials-carousel">
               <c:forEach items="${infolist}" var="info">
                 <div class="testimonial-item">
-                  <img src="/img${info.img}" class="testimonial-img" onclick="link(${info.lng},${info.lat},'${info.aptName}','${info.dong}')" alt="" />
+                  <img
+                    src="/img${info.img}"
+                    class="testimonial-img"
+                    onclick="link('${info.lng}','${info.lat}','${info.aptName}','${info.dong}')"
+                    alt=""
+                  />
                   <h3>${info.aptName}</h3>
                   <p>완공년도 | ${info.buildYear}</p>
-                  <p>서울시  ${info.jibun}</p>
+                  <p>서울시 ${info.dong} ${info.jibun}</p>
                 </div>
               </c:forEach>
             </div>
@@ -98,6 +103,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </div>
       </div>
     </section>
+    <%@ include file="./include/footer.html"%>
   </body>
 
   <script src="/vendor/counterup/counterup.min.js"></script>

@@ -9,10 +9,18 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <title>HAPPYHOUSE</title>
 
     <!--   <script src="/vendor/jquery/jquery.min.js"></script> -->
-    <link rel="icon" type="image/png" sizes="32x32" href="${root}/favicon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="${root}/favicon.png"
+    />
     <!-- Vendor CSS Files -->
     <%--
-    <link href="${root}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="${root}/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     --%>
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -48,23 +56,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     --%>
   </head>
   <body>
-    <%@ include file="./include/header.jsp"%>
-    <noscript
-      ><strong
-        >We're sorry but board doesn't work properly without JavaScript enabled. Please enable it to
-        continue.</strong
-      ></noscript
-    >
-    <div id="app"></div>
-    <script src="js/app.js"></script>
+    <%@ include file="./include/header.jsp"%> <%@ include file="./notice.html"%>
+    <%@ include file="./include/footer.html"%>
   </body>
-
-  <!--  <script src="/vendor/counterup/counterup.min.js"></script>
-  <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="/vendor/venobox/venobox.min.js"></script> -->
-  <!-- <script src="/vendor/owl.carousel/owl.carousel.min.js"></script> -->
-  <!-- <script src="/vendor/aos/aos.js"></script> -->
-
-  <!-- Template Main JS File -->
-  <!--  <script src="/js/main.js"></script> -->
 </html>

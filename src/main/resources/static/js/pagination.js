@@ -1,5 +1,6 @@
 // 총페이지수, 한페이지당 목록 수, 현재 페이지
 function pagination(total, per, current, dong) {
+  console.log(total, per, current, dong);
   let pagegroup = Math.ceil(current / per);
   let respage = Math.ceil(total / per);
   let each = per;

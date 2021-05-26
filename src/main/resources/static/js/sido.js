@@ -187,7 +187,7 @@ function dongdeallist(dong, cur, dongcode, sido) {
 
           $.ajax({
             type: "GET",
-            url: `/wish/check/${ele.aptName}`,
+            url: `/wish/check/${ele.aptName}`, // 이부분에러 제이쿼리 ( 괄호 때문인듯)
             success: function (res) {
               console.log(res);
               if (res == 2) {
