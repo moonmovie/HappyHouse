@@ -3,9 +3,14 @@ window.addEventListener("DOMContentLoaded", () => {
   const lng = searchParam("lng");
   const lat = searchParam("lat");
   const aptName = searchParam("apt");
+  const img = searchParam("img");
   let div = document.getElementById("wish");
-  div.innerHTML = "";
-  
+//  div.innerHTML = "";
+  if(img == 1){
+	  document.getElementById("aptimg").innerHTML = `<img src="img/noimg.JPG" style="width: 100%; height: auto">`;
+  }else{
+	  document.getElementById("aptimg").innerHTML = `<img src="img/${img}" style="width: 100%; height: auto">`;
+  }
   $.ajax({
     type: "GET",
     url: `/wish/check/${aptName}`,
@@ -20,7 +25,7 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     },
   });
-
+  
   $(document).on("click", "#regist_" + aptName, function () {
     $.ajax({
       type: "GET",

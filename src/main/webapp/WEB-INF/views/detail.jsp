@@ -41,8 +41,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <section>
       <div class="container">
         <div class="row">
-          <div class="col-sm-4">
-            <img src="${root}/img/apt.jpg" style="width: 100%; height: auto" />
+          <div class="col-sm-4" id="aptimg">
+            <%-- <img src="${root}/img/apt.jpg" style="width: 100%; height: auto" /> --%>
           </div>
           <div class="col-sm-8">
             <div class="row">
@@ -57,7 +57,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               <div class="col dtitle">
                 찜하기
                 <div class="dcontent" id="wish">
-                  <i class="ri-heart-line"></i><i class="ri-heart-fill"></i>
                 </div>
               </div>
             </div>
