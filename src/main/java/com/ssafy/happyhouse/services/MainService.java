@@ -23,4 +23,5 @@ public interface MainService {
 	int totalList(String dong);
 	List<StoreDto> storeinfo(Map<String,String>map,String mode);
 	
+	
 }
