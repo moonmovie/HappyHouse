@@ -14,8 +14,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <meta content="" name="keywords" />
 
     <!-- Favicons -->
-    <link href="${root}/img/favicon.png" rel="icon" />
-    <link href="${root}/img/apple-touch-icon.png" rel="apple-touch-icon" />
+  <link rel="icon" type="image/png" sizes="32x32" href="${root}/favicon.png">
 
     <!-- Vendor CSS Files -->
     <link

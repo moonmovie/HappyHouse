@@ -22,5 +22,6 @@ public interface MainService {
 	int wishDeleteService(WishDto wishdto);
 	int totalList(String dong);
 	List<StoreDto> storeinfo(Map<String,String>map,String mode);
+	List<HouseInfoDto> hotlike();
 	
 }

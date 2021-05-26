@@ -122,6 +122,12 @@ public class MainServiceImpl implements MainService{
 		}
 		
 	}
+
+	@Override
+	public List<HouseInfoDto> hotlike() {
+		// TODO Auto-generated method stub
+		return sqlsession.getMapper(MainDao.class).hotlike();
+	}
 	
 
 }

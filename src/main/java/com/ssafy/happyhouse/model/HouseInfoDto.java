@@ -10,7 +10,15 @@ public class HouseInfoDto {
 	private String jibun;
 	private String lat;
 	private String lng;
+	private String img;
 	
+	
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	public int getNo() {
 		return no;
 	}

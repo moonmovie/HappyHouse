@@ -10,7 +10,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <title>HAPPYHOUSE</title>
 
     <script src="/vendor/jquery/jquery.min.js"></script>
-
+<link rel="icon" type="image/png" sizes="32x32" href="${root}/favicon.png">
     <!-- Vendor CSS Files -->
     <link
       href="${root}/vendor/bootstrap/css/bootstrap.min.css"

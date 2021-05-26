@@ -1,5 +1,6 @@
 package com.ssafy.happyhouse.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -96,11 +97,18 @@ public class ArticleController {
 		}
 		return res;
 	}
-	@GetMapping("/hotdeal")
+	@GetMapping("/hotlike")
 	public List<HouseInfoDto> hothousedto(){
+		List<HouseInfoDto> list =mainservice.hotlike();
+//		List<HouseDealDto> deallist= new ArrayList<HouseDealDto>();
+//		Map<String,String> map=new HashMap<String, String>();
+//		for(int i=0;i<list.size();i++) {
+//			map.put("dong",list.get(i).getDong());
+//			map.put("AptName",list.get(i).getAptName());
+//			deallist.add(mainservice.housedealService(map));
+//		}
 		
-		
-		return null;
+		return mainservice.hotlike();
 	}
 
 }
