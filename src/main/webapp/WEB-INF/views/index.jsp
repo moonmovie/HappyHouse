@@ -14,7 +14,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <meta content="" name="keywords" />
 
     <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="${root}/favicon.png">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="${root}/favicon.png"
+    />
 
     <!-- Vendor CSS Files -->
     <link
@@ -99,18 +104,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
   <body>
     <%@ include file="./include/header.jsp"%>
-    
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center">
-      <div
-        class="container text-center position-relative"
-        data-aos="fade-in"
-        data-aos-delay="200"
-      >
-        <h1>Happy House</h1>
-        <h2>with SSAFY</h2>
-      </div>
-    </section>
+
     <!-- End Hero -->
 
     <main id="main">
@@ -164,20 +158,15 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <button type="button" id="btn_search" class="btn btn-warning">
               Search
             </button>
-            <c:if test="${userinfo ne null}">
-              <button type="button" id="wish_btn" class="btn btn-warning">
-                관심지역등록
-              </button>
-            </c:if>
           </li>
         </ul>
       </div>
-      <section id="about1" class="about">
+      <!-- <section id="about1" class="about">
         <div class="container">
           <div id="indexmap" style="height: 400px"></div>
         </div>
-      </section>
-      <section id="about" class="about" style="display: none">
+      </section> -->
+      <section id="about" class="about">
         <div>
           <div class="row content">
             <!-- 지도 왼쪽 부분 시작 -->
@@ -259,112 +248,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </div>
       </section>
       <!-- ======= Testimonials Section ======= -->
-      <section id="testimonials" class="testimonials section-bg">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="section-title" data-aos="fade-right">
-                <h2>Today's News</h2>
-                <p>
-                  Magnam dolores commodi suscipit uisquam quos quisquam
-                  cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat
-                  sit in iste officiis commodi quidem hic quas.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
-              <div class="owl-carousel testimonials-carousel">
-                <div class="testimonial-item">
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Proin
-                    iaculis purus consequat sem cure digni ssim donec porttitora
-                    entum suscipit rhoncus. Accusantium quam, ultricies eget id,
-                    aliquam eget nibh et. Maecen aliquam, risus at semper.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                  <img
-                    src="/img/testimonials/testimonials-1.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
-                </div>
 
-                <div class="testimonial-item">
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Export
-                    tempor illum tamen malis malis eram quae irure esse labore
-                    quem cillum quid cillum eram malis quorum velit fore eram
-                    velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                  <img
-                    src="/img/testimonials/testimonials-2.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
-                </div>
-
-                <div class="testimonial-item">
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Enim
-                    nisi quem export duis labore cillum quae magna enim sint
-                    quorum nulla quem veniam duis minim tempor labore quem eram
-                    duis noster aute amet eram fore quis sint minim.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                  <img
-                    src="/img/testimonials/testimonials-3.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
-                </div>
-
-                <div class="testimonial-item">
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Fugiat
-                    enim eram quae cillum dolore dolor amet nulla culpa multos
-                    export minim fugiat minim velit minim dolor enim duis veniam
-                    ipsum anim magna sunt elit fore quem dolore labore illum
-                    veniam.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                  <img
-                    src="/img/testimonials/testimonials-4.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
-                </div>
-
-                <div class="testimonial-item">
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Quis
-                    quorum aliqua sint quem legam fore sunt eram irure aliqua
-                    veniam tempor noster veniam enim culpa labore duis sunt
-                    culpa nulla illum cillum fugiat legam esse veniam culpa fore
-                    nisi cillum quid.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                  <img
-                    src="/img/testimonials/testimonials-5.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <!-- End Testimonials Section -->
       <!-- ======= Contact Section ======= -->
       <section id="contact" class="contact">

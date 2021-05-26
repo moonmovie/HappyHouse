@@ -10,7 +10,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <title>HAPPYHOUSE</title>
 
     <script src="/vendor/jquery/jquery.min.js"></script>
-<link rel="icon" type="image/png" sizes="32x32" href="${root}/favicon.png">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="${root}/favicon.png"
+    />
     <!-- Vendor CSS Files -->
     <link
       href="${root}/vendor/bootstrap/css/bootstrap.min.css"
@@ -88,7 +93,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           <i class="ri-home-4-line" style="font-size: 40px"></i>
           <i class="ri-arrow-left-right-fill" style="font-size: 40px"></i>
           <i class="ri-building-line" style="font-size: 40px"></i>
-          <div>얼마나 걸릴까요? 출근 시간을 확인해보세요</div>
+          <div class="row">
+            <div class="col">얼마나 걸릴까요? 출근 시간을 확인해보세요</div>
+            <div class="col" id="archeck" style="display: none">
+              주소지를 재 확인해주세요.
+            </div>
+          </div>
         </div>
         <div class="input-group col mt-4">
           <input
@@ -97,7 +107,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             id="address"
             placeholder="출근지 주소를 입력"
           />
-          <span class="input-group-btn">
+          <span class="input-group-btn mb-3">
             <button class="btn btn-default" id="loadsearch" type="button">
               <i class="ri-search-line"></i>
             </button>
