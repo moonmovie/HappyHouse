@@ -40,13 +40,8 @@ public class MemberController {
 		return "user/list";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {
-		return "user/login";
-	}
-	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session, HttpServletResponse response) {
+	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session, HttpServletResponse response, HttpServletRequest request) {
 		try {
 			MemberDto memberDto = memberService.login(map);
 			if(memberDto != null) {
@@ -68,7 +63,7 @@ public class MemberController {
 			model.addAttribute("msg", "로그인 중 문제가 발생했습니다.");
 			return "error/error";
 		}
-		return "redirect:/";
+		return "redirect:" + request.getHeader("Referer");
 	}
 	
 	@RequestMapping(value = "/kakao/login", produces = "application/json", method = RequestMethod.GET)
@@ -87,21 +82,21 @@ public class MemberController {
 	    member.setUserType("kakao");
 	    session.setAttribute("user", member);
         session.setAttribute("access_Token", access_Token);
-		return "redirect:/";
+		return "redirect:" + request.getHeader("Referer");
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session, HttpServletRequest request) {
 		session.invalidate();
-		return "redirect:/"; // 검색
+		return "redirect:" + request.getHeader("Referer"); // 검색
 	}
 	
 	@RequestMapping(value = "/kakao/logout", method = RequestMethod.GET)
-	public String kakaologout(HttpSession session) {
+	public String kakaologout(HttpSession session, HttpServletRequest request) {
 		kakao.kakaoLogout((String)session.getAttribute("access_Token"));
 	    session.removeAttribute("access_Token");
 	    session.removeAttribute("user");
-		return "redirect:/"; // 검색
+		return "redirect:" + request.getHeader("Referer"); // 검색
 	}
 	
 	@RequestMapping(value = "/regist", method = RequestMethod.GET)
