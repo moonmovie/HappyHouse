@@ -42,23 +42,25 @@ $(document).ready(function () {
       d.innerHTML = dongtag;
     },
   });
-  $.ajax({
-    type: "GET",
-    url: root + "/code/load/info/" + "숭인동",
-    success: function (res) {
-      console.log(res);
 
-      let arr = [];
-      res.forEach((ele, idx) => {
-        arr[idx] = {
-          title: ele.aptName,
-          lat: ele.lat,
-          lng: ele.lng,
-        };
-      });
-      drowmap(arr, 3, indexmap);
-    },
-  });
+  dongdeallist("숭인동", 1, 1111017500, "서울특별시");
+  // $.ajax({
+  //   type: "GET",
+  //   url: root + "/code/load/info/" + "숭인동",
+  //   success: function (res) {
+  //     console.log(res);
+
+  //     let arr = [];
+  //     res.forEach((ele, idx) => {
+  //       arr[idx] = {
+  //         title: ele.aptName,
+  //         lat: ele.lat,
+  //         lng: ele.lng,
+  //       };
+  //     });
+  //     drowmap(arr, 3, indexmap);
+  //   },
+  // });
 
   //  document.getElementById("dong").addEventListener("change",()=>{
   //	    $.ajax({
@@ -137,7 +139,6 @@ $(document).ready(function () {
   document.getElementById("btn_search").addEventListener("click", () => {
     let dong = d.options[d.selectedIndex].text;
     let sido = s.options[s.selectedIndex].text;
-    document.getElementById("about1").style.display = "none";
     document.getElementById("about").style.display = "";
     document.getElementById("deallist").innerHTML = "";
 
@@ -148,7 +149,7 @@ $(document).ready(function () {
 function dongdeallist(dong, cur, dongcode, sido) {
   let ul = document.getElementById("ul_list");
   let g = document.getElementById("gugun");
-  let gvalue = g.options[g.selectedIndex].text;
+  // let gvalue = g.options[g.selectedIndex].text;
   $.ajax({
     type: "GET",
     url: `/code/house/${dong}/${cur}`,
@@ -183,10 +184,10 @@ function dongdeallist(dong, cur, dongcode, sido) {
           li.innerHTML = `매물정보 : ${ele.aptName}<br>`;
           li.innerHTML += `건축년도 : ${ele.buildYear}<br>`;
           li.innerHTML += `<a href="/detail?lng=${ele.lng}&lat=${
-              ele.lat
-            }&apt=${encodeURIComponent(ele.aptName)}&dong=${encodeURIComponent(
-              dong
-            )}">상세보기</a>`;
+            ele.lat
+          }&apt=${encodeURIComponent(ele.aptName)}&dong=${encodeURIComponent(
+            dong
+          )}">상세보기</a>`;
           $.ajax({
             type: "GET",
             url: `/wish/check/${ele.aptName}`,
@@ -209,10 +210,12 @@ function dongdeallist(dong, cur, dongcode, sido) {
               type: "GET",
               url: `/wish/regist/${ele.aptName}`,
               success: function () {
-                console.log("버튼이?")
-                document.getElementById('regist_' + ele.aptName).style.display = 'none';
-                document.getElementById('delete_' + ele.aptName).style.display = 'block';
-              }
+                console.log("버튼이?");
+                document.getElementById("regist_" + ele.aptName).style.display =
+                  "none";
+                document.getElementById("delete_" + ele.aptName).style.display =
+                  "block";
+              },
             });
           });
 
@@ -221,13 +224,15 @@ function dongdeallist(dong, cur, dongcode, sido) {
               type: "DELETE",
               url: `/wish/delete/${ele.aptName}`,
               success: function () {
-                console.log("버튼이?")
-                document.getElementById('delete_' + ele.aptName).style.display = 'none';
-                document.getElementById('regist_' + ele.aptName).style.display = 'block';
-                }
+                console.log("버튼이?");
+                document.getElementById("delete_" + ele.aptName).style.display =
+                  "none";
+                document.getElementById("regist_" + ele.aptName).style.display =
+                  "block";
+              },
             });
           });
-  
+
           li.addEventListener("click", () => {
             let arr = [];
             arr[0] = position[idx];
@@ -238,7 +243,6 @@ function dongdeallist(dong, cur, dongcode, sido) {
             stationarea(ele.lat, ele.lng);
             //            searchAddrFromCoords(ele.lng, ele.lat);
           });
-
         });
         let listli = document.createElement("li");
         listli.setAttribute("class", "list-group-item");
@@ -249,6 +253,7 @@ function dongdeallist(dong, cur, dongcode, sido) {
         ul.appendChild(listli);
         drowmap(position, 5, map);
         // 총페이지수, 한페이지당 목록 수, 현재 페이지
+        console.log("res ", res);
         pagination(res.total, res.perpage, cur, dong);
       }
     },
@@ -335,8 +340,11 @@ function drowmap(position, num, map) {
 
     for (var i = 0; i < places.length; i++) {
       // 마커를 생성하고 지도에 표시합니다
-      var marker = addMarker(new kakao.maps.LatLng(places[i].y, places[i].x), order);
-      
+      var marker = addMarker(
+        new kakao.maps.LatLng(places[i].y, places[i].x),
+        order
+      );
+
       // 마커와 검색결과 항목을 클릭 했을 때
       // 장소정보를 표출하도록 클릭 이벤트를 등록합니다
       (function (marker, place) {

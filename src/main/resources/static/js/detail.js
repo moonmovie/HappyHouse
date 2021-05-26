@@ -4,12 +4,12 @@ window.addEventListener("DOMContentLoaded", () => {
   const lat = searchParam("lat");
   const aptName = searchParam("apt");
   let div = document.getElementById("wish");
-  div.innerHTML = "";
-  
+
   $.ajax({
     type: "GET",
     url: `/wish/check/${aptName}`,
     success: function (res) {
+      div.innerHTML = "";
       console.log(res);
       if (res == 2) {
         div.innerHTML += `<i class="ri-heart-line" id="regist_${aptName}" style="display:block;"></i>`;
@@ -26,10 +26,10 @@ window.addEventListener("DOMContentLoaded", () => {
       type: "GET",
       url: `/wish/regist/${aptName}`,
       success: function () {
-        console.log("버튼이?")
-        document.getElementById('regist_' + aptName).style.display = 'none';
-        document.getElementById('delete_' + aptName).style.display = 'block';
-      }
+        console.log("버튼이?");
+        document.getElementById("regist_" + aptName).style.display = "none";
+        document.getElementById("delete_" + aptName).style.display = "block";
+      },
     });
   });
 
@@ -38,13 +38,13 @@ window.addEventListener("DOMContentLoaded", () => {
       type: "DELETE",
       url: `/wish/delete/${aptName}`,
       success: function () {
-        console.log("버튼이?")
-        document.getElementById('delete_' + aptName).style.display = 'none';
-        document.getElementById('regist_' + aptName).style.display = 'block';
-        }
+        console.log("버튼이?");
+        document.getElementById("delete_" + aptName).style.display = "none";
+        document.getElementById("regist_" + aptName).style.display = "block";
+      },
     });
   });
-          
+
   searchAddrFromCoords(lng, lat);
   housedeal(aptName, dong);
 });
