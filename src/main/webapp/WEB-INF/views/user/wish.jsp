@@ -93,7 +93,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             let aptName = $(this).parents("tr").attr("data-id");
             console.log(aptName);
             $.ajax({
-              url: "${root}/wish/delete" + aptName,
+              url: "${root}/wish/delete/" + aptName,
               type: "DELETE",
               contentType: "application/json;charset=utf-8",
               dataType: "json",
@@ -109,7 +109,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
       });
 
       function makeList(wishs) {
-        $("wishlist").empty();
+        $("#wishlist").empty();
         $(wishs).each(function (index, wish) {
           let str = `
             <tr id="view_${"${wish.aptName}"}" class="view" data-id="${"${wish.aptName}"}" align="center">
