@@ -8,11 +8,11 @@ function pagination(total, per, current, dong) {
   let i;
   let htmlIn = "";
   if (pagegroup == 1) {
-    htmlIn += `<li class="page-item pre disabled"><a class="page-link">Previous</a></li>`;
+    htmlIn += `<li class="page-item pre disabled"><a class="page-link"><<</a></li>`;
   } else {
     htmlIn += `<li class="page-item"><a class="page-link" idx="${
       pagegroup * per - per
-    }">Previous</a></li>`;
+    }"><<</a></li>`;
   }
   if (respage <= per) {
     each = respage;
@@ -25,11 +25,11 @@ function pagination(total, per, current, dong) {
     }
   }
   if (pagegroup == respage || respage <= per) {
-    htmlIn += `<li class="page-item disabled"><a class="page-link">next</a></li>`;
+    htmlIn += `<li class="page-item disabled"><a class="page-link">>></a></li>`;
   } else {
     htmlIn += `<li class="page-item next"><a class="page-link" idx="${
       i + 1
-    }">next</a></li>`;
+    }">>></a></li>`;
   }
   pagenaion.innerHTML = htmlIn;
 
