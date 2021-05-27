@@ -115,7 +115,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             class="form-control"
             id="address"
             placeholder="출근지 주소를 입력"
-            value="서울특별시 종로구 혜화동 창경궁로 296-12"
+            value=""
           />
           <span class="input-group-btn mb-3">
             <button class="btn btn-default" id="loadsearch" type="button">

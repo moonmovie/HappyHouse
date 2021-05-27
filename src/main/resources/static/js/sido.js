@@ -183,14 +183,25 @@ function dongdeallist(dong, cur, dongcode, sido) {
           li.setAttribute("class", "list-group-item");
           li.innerHTML = "";
 
-          
-
           $.ajax({
             type: "GET",
             url: `/wish/check/${ele.aptName}`, // 이부분에러 제이쿼리 ( 괄호 때문인듯)
             success: function (res) {
-              console.log(res);
-              if (res == 2) {
+              if (res == 2) {// 디비에 없음
+            	  if(ele.img != null){ 
+                	  li.innerHTML += `<div style="float:left; width:230px; height:230px;">매물정보 : ${ele.aptName}<br>
+                	  				건축년도 : ${ele.buildYear}<br><a href="/detail?lng=${ele.lng}&lat=${ele.lat}&apt=${encodeURIComponent(ele.aptName)}
+                	  				&dong=${encodeURIComponent(dong)}&img=${ele.img}">상세보기</a>
+                	  				<i class="ri-heart-fill" id="delete_${ele.aptName}" style="display:none;"></i>
+                	  				<i class="ri-heart-line" id="regist_${ele.aptName}" style="display:block;"></i></div>`;
+                  }else{
+                	  li.innerHTML += `<div style="float:left; width:230px; height:230px;">매물정보 : ${ele.aptName}<br>
+                	  				건축년도 : ${ele.buildYear}<br><a href="/detail?lng=${ele.lng}&lat=${ele.lat}&apt=${encodeURIComponent(ele.aptName)}
+                	  				&dong=${encodeURIComponent(dong)}&img=1">상세보기</a>
+                	  				<i class="ri-heart-fill" id="delete_${ele.aptName}" style="display:none;"></i>
+                	  				<i class="ri-heart-line" id="regist_${ele.aptName}" style="display:block;"></i></div>`;
+                  }
+              } else if (res == 3) { // 디비에 있음
             	  if(ele.img != null){
                 	  li.innerHTML += `<div style="float:left; width:230px; height:230px;">매물정보 : ${ele.aptName}<br>
                 	  				건축년도 : ${ele.buildYear}<br><a href="/detail?lng=${ele.lng}&lat=${ele.lat}&apt=${encodeURIComponent(ele.aptName)}
@@ -204,23 +215,7 @@ function dongdeallist(dong, cur, dongcode, sido) {
                 	  				<i class="ri-heart-fill" id="delete_${ele.aptName}" style="display:block;"></i>
                 	  				<i class="ri-heart-line" id="regist_${ele.aptName}" style="display:none;"></i></div>`;
                   }
-              } else if (res == 3) {
-            	  if(ele.img != null){
-                	  li.innerHTML += `<div style="float:left; width:230px; height:230px;">매물정보 : ${ele.aptName}<br>
-                	  				건축년도 : ${ele.buildYear}<br><a href="/detail?lng=${ele.lng}&lat=${ele.lat}&apt=${encodeURIComponent(ele.aptName)}
-                	  				&dong=${encodeURIComponent(dong)}&img=${ele.img}">상세보기</a>
-                	  				<i class="ri-heart-fill" id="delete_${ele.aptName}" style="display:block;"></i>
-                	  				<i class="ri-heart-line" id="regist_${ele.aptName}" style="display:none;"></i></div>`;
-                  }else{
-                	  li.innerHTML += `<div style="float:left; width:230px; height:230px;">매물정보 : ${ele.aptName}<br>
-                	  				건축년도 : ${ele.buildYear}<br><a href="/detail?lng=${ele.lng}&lat=${ele.lat}&apt=${encodeURIComponent(ele.aptName)}
-                	  				&dong=${encodeURIComponent(dong)}&img=1">상세보기</a>
-                	  				<i class="ri-heart-fill" id="delete_${ele.aptName}" style="display:block;"></i>
-                	  				<i class="ri-heart-line" id="regist_${ele.aptName}" style="display:none;"></i></div>`;
-                  }
-                
               }
-              
             },
           });
           if(ele.img != null){
