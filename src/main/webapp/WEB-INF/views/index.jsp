@@ -201,6 +201,16 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     overflow: hidden;
                   "
                 ></div>
+                 <div class="mt-4 mb-4 text-center" id="chartarea"></div>
+                 <div class="container row text-center" id="chart">
+                 
+          <div class="col">
+            <canvas id="myChart" width="auto" height="300px"></canvas>
+          </div>
+          <div class="col" style="padding-top: 50px">
+            <canvas id="stationChart" width="500px" height="auto"></canvas>
+          </div>
+        </div>
                 <ul id="category">
                   <li id="BK9" data-order="0">
                     <span class="category_bg bank"></span>
@@ -232,17 +242,17 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           </div>
         </div>
       </section>
-      <section class="about container"></section>
+      
       <section id="list" class="about container text-center">
-        <div class="mb-4" id="chartarea"></div>
-        <div class="container row text-center" id="chart">
+        <!-- <div class="mb-4" id="chartarea"></div> -->
+       <%--  <div class="container row text-center" id="chart">
           <div class="col">
             <canvas id="myChart" width="auto" height="300px"></canvas>
           </div>
           <div class="col" style="padding-top: 50px">
             <canvas id="stationChart" width="500px" height="auto"></canvas>
           </div>
-        </div>
+        </div> --%>
         <div class="container" style="display: none">
           <table class="table" id="deallist"></table>
         </div>
