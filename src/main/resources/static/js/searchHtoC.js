@@ -79,7 +79,7 @@ function searchmapObj(SX, SY, EX, EY) {
           let time = cur.info.totalTime;
 
           totalTime =
-            time > 59 ? time / 60 + "시" + (time % 60) + "분" : time + "분";
+            time > 59 ? Math.floor(time / 60) + "시" + (time % 60) + "분" : time + "분";
           if (time < numtime) {
             numtime = time;
             mintime = totalTime;
