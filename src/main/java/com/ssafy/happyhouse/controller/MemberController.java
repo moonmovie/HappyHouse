@@ -1,19 +1,24 @@
 package com.ssafy.happyhouse.controller;
 
+import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ssafy.happyhouse.model.MemberDto;
+import com.ssafy.happyhouse.services.KakaoService;
 import com.ssafy.happyhouse.services.MemberService;
 
 @Controller
@@ -22,19 +27,21 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private KakaoService kakao;
+	
+	@GetMapping(value = "/wish")
+	public String mv() throws SQLException {
+		return "user/wish";
+	}
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list() {
 		return "user/list";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {
-		return "user/login";
-	}
-	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session, HttpServletResponse response) {
+	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session, HttpServletResponse response, HttpServletRequest request) {
 		try {
 			MemberDto memberDto = memberService.login(map);
 			if(memberDto != null) {
@@ -56,13 +63,40 @@ public class MemberController {
 			model.addAttribute("msg", "로그인 중 문제가 발생했습니다.");
 			return "error/error";
 		}
-		return "redirect:/";
+		return "redirect:" + request.getHeader("Referer");
+	}
+	
+	@RequestMapping(value = "/kakao/login", produces = "application/json", method = RequestMethod.GET)
+	public String kakaologin(@RequestParam("code") String code, HttpSession session, HttpServletRequest request, HttpServletResponse httpServletResponse) {
+		MemberDto member = new MemberDto();
+		String access_Token = kakao.getAccessToken(code);
+		HashMap<String, Object> userInfo = kakao.getUserInfo(access_Token);
+	    System.out.println("login Controller : " + userInfo);
+	    System.out.println(userInfo.get("nickname"));
+	    //    클라이언트의 이메일이 존재할 때 세션에 해당 이메일과 토큰 등록
+//	    if (userInfo.get("email") != null) {
+//	    	member.setUserEmail((String) userInfo.get("email"));
+//	    }
+//	    session.setAttribute("userId", userInfo.get("nickname"));
+	    member.setUserName((String) userInfo.get("nickname"));
+	    member.setUserType("kakao");
+	    session.setAttribute("user", member);
+        session.setAttribute("access_Token", access_Token);
+		return "redirect:" + request.getHeader("Referer");
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session, HttpServletRequest request) {
 		session.invalidate();
-		return "redirect:/"; // 검색
+		return "redirect:" + request.getHeader("Referer");
+	}
+	
+	@RequestMapping(value = "/kakao/logout", method = RequestMethod.GET)
+	public String kakaologout(HttpSession session, HttpServletRequest request) {
+		kakao.kakaoLogout((String)session.getAttribute("access_Token"));
+	    session.removeAttribute("access_Token");
+	    session.removeAttribute("user");
+		return "redirect:" + request.getHeader("Referer");
 	}
 	
 	@RequestMapping(value = "/regist", method = RequestMethod.GET)

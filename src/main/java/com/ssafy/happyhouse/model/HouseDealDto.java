@@ -14,22 +14,10 @@ public class HouseDealDto {
 	private String area;
 	private String floor;
 	private String jibun;
+//	private String like;
 //	private String lat;
 //	private String lng;
 	
-	
-//	public String getLat() {
-//		return lat;
-//	}
-//	public void setLat(String lat) {
-//		this.lat = lat;
-//	}
-//	public String getLng() {
-//		return lng;
-//	}
-//	public void setLng(String lng) {
-//		this.lng = lng;
-//	}
 	public int getNo() {
 		return no;
 	}

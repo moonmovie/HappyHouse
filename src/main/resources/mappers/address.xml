@@ -19,13 +19,40 @@
 		select * from sidocode
 	</select>
 	
-	<select id="houseInfoDao" parameterType="String" resultType="houseInfoDto">
+	<select id="houseInfoDao" parameterType="Map" resultType="houseInfoDto">
 		select * from houseinfo
 		where dong=#{dong}
+		order by no
+		<if test="start!=null">
+			limit #{start},#{end}
+		</if>
+		
 	</select>
 	
 	<select id="housedealDao" parameterType="Map" resultType="houseDealDto">
 		select * from housedeal
 		where dong = #{dong} and AptName = #{name}
 	</select>
+	
+	<select id="totalList" parameterType="String" resultType="int">
+		select count(*) from houseinfo
+		where dong=#{dong}
+	</select>
+	
+	<select id="storeinfo" parameterType="Map" resultType="storeDto">
+		select * from store
+		where bcode=#{dongcode} and scode=#{classify}
+	</select>
+	
+	<select id="hotlike" resultType="houseInfoDto">
+		select * from houseinfo
+		where AptName in(select * from(
+		select AptName from wishlist
+		group by AptName
+		order by count(*)  desc
+		limit 0,7
+		) as tmp)
+		group by AptName;
+	</select>
+	
 </mapper>

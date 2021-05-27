@@ -120,7 +120,6 @@ public class NoticeController {
 		System.out.println(map.get("no"));
 		System.out.println(map.get("search"));
 		System.out.println(map.get("word"));
-//		System.out.println(curpage+" "+search+" "+word);
 		
 		Map<String,Object> servicemap = new HashMap<String, Object>();
 //		
